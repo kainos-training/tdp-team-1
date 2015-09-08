@@ -7,7 +7,7 @@
 	
 	<main id="content" role="main">
 		<div>
-			<p>Hello world! Testing webhook!...Again...and again</p>
+			<p>Hello world!</p>
 		</div>
 		
 		<button onclick="sayHello()">Say Hello!</button>
