@@ -20,6 +20,11 @@ grant usage on *.* to 'library_user'@'localhost';
 drop user 'library_user'@'localhost';
 create user 'library_user'@'localhost' identified by 'kainos2015';
 
+-- Create database
+drop database if exists library;
+create database library;
+use library;
+
 --
 -- Table structure for table `books`
 --
