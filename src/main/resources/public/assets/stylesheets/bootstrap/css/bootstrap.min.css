@@ -8677,6 +8677,10 @@ input.kainos-searchbox {
 	font-size: 20px;
 }
 
+.year {
+	color: red !important;
+}
+
 .kainos-book-details h3 {
 	color: #4d4d4d;
 	font-size: 16px;
