@@ -15,6 +15,7 @@ public class ViewsResource {
 	
 	public ViewsResource(){ }
 	
+	
 	@GET
 	@Timed
 	@Path("/index")
