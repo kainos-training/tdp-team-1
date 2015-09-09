@@ -36,7 +36,7 @@ CREATE TABLE `books` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
   `author` varchar(50) NOT NULL,
-  `category` enum('Coaching/Management','Technical','Project Execution') NOT NULL,
+  `category` enum('Leadership + Management','Technical','Project Execution') NOT NULL,
   `publish_year` smallint(6) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
@@ -50,9 +50,9 @@ LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
 INSERT INTO `books` VALUES (1,'Learning ASP.NET 3.5','Liberty, Hurwitz & MacDonald',
 'Technical',2008),(2,'Pandora\'s Box','Adams and McCrindle',
-'Coaching/Management',2008),(3,'Pandora\'s Box','Adams and McCrindle',
-'Coaching/Management',2008),(4,'Pandora\'s Box',
-'Adams and McCrindle','Coaching/Management',2008),
+'Leadership + Management',2008),(3,'Pandora\'s Box','Adams and McCrindle',
+'Leadership + Management',2008),(4,'Pandora\'s Box',
+'Adams and McCrindle','Leadership + Management',2008),
 (5,'Linux Complete','Taylor','Technical',1999),
 (6,'Pro Git','Chacon','Technical',2009),
 (7,'Puppet 2.7 Cookbook','Arundel','Technical',2011);
