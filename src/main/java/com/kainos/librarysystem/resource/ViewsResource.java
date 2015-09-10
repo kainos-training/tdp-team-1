@@ -22,20 +22,19 @@ import com.kainos.librarysystem.views.Index;
 @Path("/")
 public class ViewsResource {
 	
-	public ViewsResource(){ }
+	private DbConnector dbConnector;
+	
+	public ViewsResource(DbConnector dbConnector){ 
+		this.dbConnector = dbConnector;
+	}
 	
 	@GET
 	@Timed
 	@Path("/index")
 	@Produces(MediaType.TEXT_HTML)
-
-	public View sayHello(){
-		
-		ArrayList<Book> booksList = new ArrayList<Book>();
-		booksList.add(new Book(1, "Pandora's Box", "Andrew A Adams", "Management", 2008));
-		booksList.add(new Book(2, "Puppet 2.7 Cookbook", "John Arundel", "Technical", 2010));
+	public View index() throws Exception {
+		List<Book> booksList = dbConnector.getBooksFromDB();
 		return new Index(booksList);
-
 	}
 
 }
