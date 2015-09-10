@@ -56,11 +56,13 @@ public class ViewsResource {
 		return new SearchResults(books, searchMessage + searchCriteria + " & "
 				+ searchText, searchText);
 	}
-	@POST
+
+	@GET
 	@Timed
 	@Path("/return/{id}")
 	@Produces(MediaType.TEXT_HTML)
 	public Response returnBook(@PathParam("id") int id) throws Exception{
+		System.out.println("Hey!");
 		dbConnector.returnBook(id);
 		return Response.seeOther(UriBuilder.fromUri("/index").build()).build();	
 	}
