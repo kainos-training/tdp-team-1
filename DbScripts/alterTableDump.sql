@@ -1,10 +1,10 @@
 use library;
 
-alter table books ADD name varchar(50);
+alter table books ADD borrower_name varchar(50);
 
-alter table books add flag binary;
+alter table books add flag boolean;
 
-alter table books add Date date;
+alter table books add borrow_date date;
 
 
 

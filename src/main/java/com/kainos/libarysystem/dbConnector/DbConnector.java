@@ -1,12 +1,15 @@
 package com.kainos.libarysystem.dbConnector;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.joda.time.DateTime;
 
 import com.kainos.librarysystem.models.Book;
 
@@ -114,13 +117,35 @@ public class DbConnector {
 			}
 		}
 	}
-	
-	public void borrowBook(String name, int bookID) {
-		
-		boolean available;
-		
-		available = true;
-		
-		
+
+	public void borrowBook(String name, int bookID)
+			throws ClassNotFoundException, SQLException {
+		boolean bookAvailability = false;
+		Date borrowDate = new Date(new java.util.Date().getTime());
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+
+			String updateBorrowBook = "UPDATE books SET borrower_name = ? ,flag = ? ,borrow_date = ? WHERE id = ?";
+			preparedStatement = connection.prepareStatement(updateBorrowBook);
+			preparedStatement.setString(1, name);
+			preparedStatement.setBoolean(2, bookAvailability);
+			preparedStatement.setDate(3, borrowDate);
+			preparedStatement.setInt(4, bookID);
+
+			preparedStatement.executeUpdate();
+
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
+
 	}
 }
