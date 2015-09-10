@@ -69,7 +69,7 @@ public class DbConnector {
 			connection = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
-
+			
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";
@@ -87,10 +87,13 @@ public class DbConnector {
 				return books;
 			}
 
-			String query = "SELECT * FROM books WHERE ? = ?";
+			String query = "SELECT * FROM books WHERE " + searchByColumnName
+					+ " LIKE ?";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, searchByColumnName);
-			preparedStatement.setString(2, searchText);
+			preparedStatement.setString(1, "%" + searchText + "%");
+
+			System.out.println(query);
+			System.out.println("**************************");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {

@@ -6,6 +6,7 @@ public class Book {
 	private String bookAuthor;
 	private String bookCategory;
 	private int bookPublishedYear;
+	private String bookPublishedYearString;
 	private int id;
 	
 	public Book(int id, String title, String author, String category, int pubYear) {
@@ -14,6 +15,7 @@ public class Book {
 		bookAuthor = author;
 		bookCategory = category;
 		bookPublishedYear = pubYear;
+		bookPublishedYearString = Integer.toString(pubYear);
 	}
 
 	public Book() {
@@ -54,6 +56,10 @@ public class Book {
 
 	public int getBookPublishedYear() {
 		return bookPublishedYear;
+	}
+	
+	public String getBookPublishedYearString() {
+		return Integer.toString(bookPublishedYear);
 	}
 	
 	public void setBookPublishedYear(int bookPublishedYear) {

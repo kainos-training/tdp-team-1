@@ -35,11 +35,11 @@ public class SearchResults extends View {
 		this.searchMessage = searchMessage;
 	}
 
-	public String getSearchCriteria() {
+	public String getSearchText() {
 		return searchText;
 	}
 
-	public void setSearchCriteria(String searchCriteria) {
-		this.searchText = searchCriteria;
+	public void setSearchText(String searchText) {
+		this.searchText = searchText;
 	}
 }
