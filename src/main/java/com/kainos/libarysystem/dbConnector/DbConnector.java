@@ -126,19 +126,21 @@ public class DbConnector {
 					"kainos2015");
 
 			String getBookByIdQuery = "SELECT * FROM books WHERE id = ?";
-			preparedStatement.setInt(1, bookId);
 			preparedStatement = connection.prepareStatement(getBookByIdQuery);
+			preparedStatement.setInt(1, bookId);
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			book.setId(resultSet.getInt("id"));
-			book.setBookTitle(resultSet.getString("title"));
-			book.setBookAuthor(resultSet.getString("author"));
-			book.setBookCategory(resultSet.getString("category"));
-			book.setBookPublishedYear(resultSet.getInt("publish_year"));
+			while(resultSet.next()) {
+				book.setId(resultSet.getInt("id"));
+				book.setBookTitle(resultSet.getString("title"));
+				book.setBookAuthor(resultSet.getString("author"));
+				book.setBookCategory(resultSet.getString("category"));
+				book.setBookPublishedYear(resultSet.getInt("publish_year"));
+			}
 
 			return book;
 		} catch (SQLException e) {
-			return book;
+			throw e;
 		} finally {
 			if (connection != null) {
 				connection.close();
