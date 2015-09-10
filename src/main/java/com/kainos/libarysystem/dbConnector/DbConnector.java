@@ -91,8 +91,6 @@ public class DbConnector {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, "%" + searchText + "%");
 
-			System.out.println(query);
-			System.out.println("**************************");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
@@ -114,6 +112,7 @@ public class DbConnector {
 			}
 		}
 	}
+
 	
 	public void borrowBook(String name, int bookID) {
 		
@@ -122,5 +121,29 @@ public class DbConnector {
 		available = true;
 		
 		
+	}
+
+	public void returnBook(int id)
+			throws SQLException, ClassNotFoundException {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+
+			String query = "UPDATE books SET flag=0 WHERE id = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, id + "");
+
+			preparedStatement.executeUpdate();
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
 	}
 }
