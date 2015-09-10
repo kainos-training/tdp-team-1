@@ -1,0 +1,12 @@
+use library;
+
+alter table books ADD name varchar(50);
+
+alter table books add flag boolean;
+
+alter table books add Date date;
+
+
+
+
+

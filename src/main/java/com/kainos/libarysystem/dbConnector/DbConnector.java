@@ -114,4 +114,13 @@ public class DbConnector {
 			}
 		}
 	}
+	
+	public void borrowBook(String name, int bookID) {
+		
+		boolean available;
+		
+		available = true;
+		
+		
+	}
 }
