@@ -53,7 +53,7 @@ INSERT INTO `books` VALUES (1,'Learning ASP.NET 3.5','Liberty, Hurwitz & MacDona
 'Leadership + Management',2008),(3,'Pandora\'s Box','Adams and McCrindle',
 'Leadership + Management',2008),(4,'Pandora\'s Box',
 'Adams and McCrindle','Leadership + Management',2008),
-(5,'Linux Complete','Taylor','Technical',1999),
+(5,'Linux Complete','Taylor','Project Execution',1999),
 (6,'Pro Git','Chacon','Technical',2009),
 (7,'Puppet 2.7 Cookbook','Arundel','Technical',2011);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
