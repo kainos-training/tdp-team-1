@@ -5,6 +5,7 @@ import io.dropwizard.views.View;
 import java.util.List;
 
 import javax.ws.rs.FormParam;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -25,6 +26,10 @@ public class ViewsResource {
 		this.dbConnector = dbConnector;
 	}
 
+	@GET
+	@Timed
+	@Path("/index")
+	@Produces(MediaType.TEXT_HTML)
 	public View index() throws Exception {
 		List<Book> booksList = dbConnector.getBooksFromDB();
 		return new Index(booksList);

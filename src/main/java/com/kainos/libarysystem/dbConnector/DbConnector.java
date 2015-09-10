@@ -65,6 +65,11 @@ public class DbConnector {
 		List<Book> books = new ArrayList<Book>();
 		String searchByColumnName;
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+			
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";

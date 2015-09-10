@@ -5,7 +5,7 @@
     <title>kLibrary &middot; Index of books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link href="/assets/stylesheets/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.min.css" media="screen">
   </head>
   <body>
 
@@ -16,9 +16,21 @@
           <a class="navbar-brand kainos-branding" href="#">kLibrary</a>
         </div>
 
-        <div class="form-group kainos-search">
-          <input class="form-control input-sm kainos-searchbox" type="text" id="inputSmall" placeholder="Search">
-        </div>
+        <form class="kainos-search-group" role="search" action="search" method="post">
+          <div class="form-group">
+
+            <input type="text" class="form-control input-sm kainos-search" placeholder="Search" name="searchText">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <select class="form-control input-sm kainos-criteria" id="select" name="searchCriteria">
+              <option>Title</option>
+              <option>Author</option>
+              <option>Category</option>
+              <option>Year</option>
+            </select>
+            <button type="submit" class="btn btn-primary btn-sm kainos-search-button">Search</button>
+          </div>
+
+        </form>
 
 
       </div>
@@ -46,8 +58,6 @@
 
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
