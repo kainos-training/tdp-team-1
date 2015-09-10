@@ -1,6 +1,7 @@
 package com.kainos.librarysystem;
 
 import com.google.common.collect.ImmutableMap;
+import com.kainos.libarysystem.dbConnector.DbConnector;
 import com.kainos.librarysystem.configuration.LibrarySystemConfiguration;
 import com.kainos.librarysystem.resource.ViewsResource;
 
@@ -20,7 +21,7 @@ public class LibrarySystemApplication extends Application<LibrarySystemConfigura
 	@Override
 	public void run(LibrarySystemConfiguration configuration, Environment environment)
 			throws Exception {
-		final ViewsResource resource = new ViewsResource();
+		final ViewsResource resource = new ViewsResource(new DbConnector());
 		environment.jersey().register(resource);
 	}
 	
