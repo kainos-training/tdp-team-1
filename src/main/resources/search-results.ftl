@@ -49,7 +49,7 @@
   
   <#list books as book>
 
-  <a href="#0">
+  <a href="/bookDetails/${book.id}">
     <div class="kainos-book-card">
       <div class="col-xs-4 col-md-2 kainos-book-cover">
         <img src="http://placehold.it/100x150" class="img-responsive" />
