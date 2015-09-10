@@ -38,4 +38,41 @@ public class DbConnectorTests extends BasicJDBCTestCaseAdapter {
 		verifyConnectionClosed();
 	}
 	
+	@Test
+	public void testSearchQuery_byTitle() throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnector();
+		List<Book> books = connector.searchBooks("ProGit", "title");
+		verifyAllResultSetsClosed();
+		verifyAllStatementsClosed();
+		verifyConnectionClosed();
+	}
+	
+	@Test
+	public void testSearchQuery_byAuthor() throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnector();
+		List<Book> books = connector.searchBooks("Jimmy Jazz", "author");
+		verifyAllResultSetsClosed();
+		verifyAllStatementsClosed();
+		verifyConnectionClosed();
+	}
+	
+	@Test
+	public void testSearchQuery_byCategory() throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnector();
+		List<Book> books = connector.searchBooks("Jimmy Jazz", "category");
+		verifyAllResultSetsClosed();
+		verifyAllStatementsClosed();
+		verifyConnectionClosed();
+	}
+	
+	@Test
+	public void testSearchQuery_byDate() throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnector();
+		List<Book> books = connector.searchBooks("Jimmy Jazz", "date");
+		verifyAllResultSetsClosed();
+		verifyAllStatementsClosed();
+		verifyConnectionClosed();
+	}
+	
+	
 }
