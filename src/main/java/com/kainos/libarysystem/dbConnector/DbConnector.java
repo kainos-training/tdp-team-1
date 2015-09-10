@@ -64,6 +64,11 @@ public class DbConnector {
 			throws SQLException, ClassNotFoundException {
 		List<Book> books = new ArrayList<Book>();
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+			
 			switch (searchBy) {
 			case "date":
 			case "author":
