@@ -60,7 +60,7 @@ public class DbConnector {
 		return books;
 	}
 
-	public List<Book> searchForBook(String searchText, String searchBy)
+	public List<Book> searchBooks(String searchText, String searchBy)
 			throws SQLException, ClassNotFoundException {
 		switch (searchBy) {
 		case "date":

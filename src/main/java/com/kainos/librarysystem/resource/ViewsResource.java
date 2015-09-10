@@ -37,8 +37,7 @@ public class ViewsResource {
 	public View searchBooks(@FormParam("searchCriteria") String searchCriteria,
 			@FormParam("searchText") String searchText) {
 
-		ArrayList<Book> books = new ArrayList<Book>();
-		// TODO: call DB connector passing search parameters
+		List<Book> books = dbConnector.searchBooks(searchText, searchCriteria);
 
 		if (books.size() == 0) {
 			return new Index(books, "No matches for criteria " + searchCriteria
@@ -46,5 +45,4 @@ public class ViewsResource {
 		}
 		return new Index(books);
 	}
-
 }
