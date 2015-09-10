@@ -8755,3 +8755,7 @@ span.year {
     background: rgb(190,214,0);
     color: #fff;
 }
+
+.kainos-result-header {
+    margin-top: 0;
+}
