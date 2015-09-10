@@ -62,28 +62,41 @@ public class DbConnector {
 
 	public List<Book> searchBooks(String searchText, String searchBy)
 			throws SQLException, ClassNotFoundException {
-		switch (searchBy) {
-		case "date":
-		case "author":
-		case "title":
-		case "category":
-			List<Book> books = new ArrayList<Book>();
-			String query = "SELECT * FROM books WHERE ? = ?";
-			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, searchBy);
-			preparedStatement.setString(2, searchText);
-			ResultSet rs = preparedStatement.executeQuery();
+		List<Book> books = new ArrayList<Book>();
+		try {
+			switch (searchBy) {
+			case "date":
+			case "author":
+			case "title":
+			case "category":
 
-			while (rs.next()) {
-				Book book = new Book(rs.getInt("id"), rs.getString("title"),
-						rs.getString("author"), rs.getString("category"),
-						rs.getInt("publish_year"));
-				books.add(book);
+				String query = "SELECT * FROM books WHERE ? = ?";
+				preparedStatement = connection.prepareStatement(query);
+				preparedStatement.setString(1, searchBy);
+				preparedStatement.setString(2, searchText);
+				ResultSet rs = preparedStatement.executeQuery();
+
+				while (rs.next()) {
+					Book book = new Book(rs.getInt("id"),
+							rs.getString("title"), rs.getString("author"),
+							rs.getString("category"), rs.getInt("publish_year"));
+					books.add(book);
+				}
+				return books;
+
+			default:
+				return books;
 			}
+		} catch(SQLException e) {
 			return books;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
 
-		default:
-			return new ArrayList<Book>();
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
 		}
 	}
 }

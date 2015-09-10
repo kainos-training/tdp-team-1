@@ -35,7 +35,7 @@ public class ViewsResource {
 	@Path("/index")
 	@Produces(MediaType.TEXT_HTML)
 	public View searchBooks(@FormParam("searchCriteria") String searchCriteria,
-			@FormParam("searchText") String searchText) {
+			@FormParam("searchText") String searchText) throws Exception {
 
 		List<Book> books = dbConnector.searchBooks(searchText, searchCriteria);
 
