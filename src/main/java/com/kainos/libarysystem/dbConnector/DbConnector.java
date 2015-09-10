@@ -87,9 +87,9 @@ public class DbConnector {
 			}
 
 			String query = "SELECT * FROM books WHERE " + searchByColumnName
-					+ " = ?";
+					+ " LIKE ?";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, searchText);
+			preparedStatement.setString(1, "%" + searchText + "%");
 
 			System.out.println(query);
 			System.out.println("**************************");
