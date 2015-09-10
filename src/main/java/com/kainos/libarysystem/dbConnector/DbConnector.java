@@ -69,10 +69,6 @@ public class DbConnector {
 			connection = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
-			System.out.println("**************************");
-			System.out.println(searchText);
-			System.out.println(searchBy);
-			System.out.println("**************************");
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";
