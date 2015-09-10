@@ -5310,8 +5310,8 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
     margin-left: -15px;
     margin-right: -15px;
     padding: 10px 15px;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    /*border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;*/
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
     margin-top: 6px;
@@ -8589,7 +8589,7 @@ a.list-group-item-danger.active:focus {
 
 
 /*.col-lg-3 {
-	outline: 1px solid red;
+    outline: 1px solid red;
 }*/
 
 .training-material-container {
@@ -8607,21 +8607,21 @@ a.list-group-item-danger.active:focus {
 }
 
 .kainos-header {
-	background: rgb(0,91,187);
+    background: rgb(0,91,187);
 }
 
 .kainos-header .navbar-brand {
-	color: #fff;
+    color: #fff;
 }
 
 .kainos-header .navbar-brand:hover {
-	color: #fff;
+    color: #fff;
 }
 
 .kainos-header.navbar {
-	border-radius: 0;
-	border-left: none;
-	border-right: none;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
 }
 
 .navbar-header {
@@ -8649,46 +8649,109 @@ a.list-group-item-danger.active:focus {
 }
 
 input.kainos-searchbox {
-	text-align: left;
+    text-align: left;
 }
 
 .kainos-book-card {
-	border-bottom: 3px solid #eee;
-	width: 100%;
-	background: #f8f8f8;
-	display: block;
-	float: left;
-	padding: 1.5em 0;
-	margin-bottom: 1.5em;
+    border-bottom: 3px solid #eee;
+    width: 100%;
+    background: #f8f8f8;
+    display: block;
+    float: left;
+    padding: 1.5em 0;
+    margin-bottom: 1.5em;
 }
 
 .kainos-book-cover {
-	float: left;
+    float: left;
 }
 
 .kainos-book-details h2,
 .kainos-book-details h3,
 .kainos-book-details h4 {
-	margin-bottom: .5em;
-	margin-top: 0;
+    margin-bottom: .5em;
+    margin-top: 0;
 }
 
 .kainos-book-details h2 {
-	font-size: 20px;
+    font-size: 20px;
+}
+
+span.year {
+    color: #999;
+    font-size: .9em;
 }
 
 .kainos-book-details h3 {
-	color: #4d4d4d;
-	font-size: 16px;
+    color: #4d4d4d;
+    font-size: 16px;
 }
 
 .kainos-book-details h4 {
-	color: #999999;
-	text-transform: uppercase;
-	font-size: 14px;
+    color: #999999;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
 .kainos-label {
-	margin-bottom: .75em;
-	display: inline-block;
+    margin-bottom: .75em;
+    display: inline-block;
+}
+
+.btn-kainos-header {
+    position: fixed;
+    color: #fff;
+    text-transform: none;
+    width: 100px;
+    top: 4px;
+    left: -5px;
+    font-weight: normal;
+    text-align: left;
+}
+
+.btn-kainos-header:hover {
+    color: #fff;
+}
+
+.btn-kainos-header span {
+    position: relative;
+    top: -8px;
+}
+
+.container-fluid>.navbar-header {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.kainos-search-group .kainos-search {
+    width: 50%;
+    float: left;
+    margin-right: 10px;
+    padding-left: 25px;
+}
+
+.kainos-search-group .kainos-criteria {
+    width: 25%;
+    float: left;
+    margin-right: 10px;
+}
+
+.kainos-search-group {
+    position: relative;
+}
+
+.kainos-search-group .glyphicon-search {
+    position: absolute;
+    left: 8px;
+    top: 58px;
+}
+
+.kainos-search-group .kainos-search-button {
+    background: rgb(190,214,0);
+
+}
+
+.kainos-search-group .kainos-search-button:active {
+    background: rgb(190,214,0);
+    color: #fff;
 }
