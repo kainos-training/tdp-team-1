@@ -36,7 +36,7 @@
       </div>
       <div class="col-xs-8 col-md-8 kainos-book-details">
         <span class="label label-success kainos-label">Available</span>
-        <h2>${book.bookTitle} <span class="year">${book.bookPublishedYear}</span></h2>
+        <h2>${book.bookTitle} <span class="year">${book.bookPublishedYearString}</span></h2>
         <h3 class="kainos-book-author">${book.bookAuthor}</h3>
         <h4 class="kainos-book-category">${book.bookCategory}</h4>
       </div>
