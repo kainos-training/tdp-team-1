@@ -23,7 +23,7 @@
         <form class="kainos-search-group" role="search" action="search" method="post">
           <div class="form-group">
 
-            <input type="text" class="form-control input-sm kainos-search" placeholder="Search" value="${searchCriteria}"  name="searchText">
+            <input type="text" class="form-control input-sm kainos-search" placeholder="Search" value="${searchText}"  name="searchText">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
             <select class="form-control input-sm kainos-criteria" id="select" name="searchCriteria">
               <option>Title</option>

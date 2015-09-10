@@ -51,6 +51,6 @@ public class ViewsResource {
 			searchMessage = "Matches found for criteria ";
 		}
 		return new SearchResults(books, searchMessage + searchCriteria + " & "
-				+ searchText, searchCriteria);
+				+ searchText, searchText);
 	}
 }
