@@ -62,9 +62,16 @@ public class ViewsResource {
 	@Path("/return/{id}")
 	@Produces(MediaType.TEXT_HTML)
 	public Response returnBook(@PathParam("id") int id) throws Exception{
-		System.out.println("Hey!");
 		dbConnector.returnBook(id);
 		return Response.seeOther(UriBuilder.fromUri("/index").build()).build();	
 	}
 	
+	@POST
+	@Timed
+	@Path("/borrow/{id}")
+	@Produces(MediaType.TEXT_HTML)
+	public Response borrowBook(@PathParam("id") int id, @FormParam("name") String name) throws Exception{
+		dbConnector.borrowBook(name, id);
+		return Response.seeOther(UriBuilder.fromUri("/index").build()).build();	
+	}
 }
