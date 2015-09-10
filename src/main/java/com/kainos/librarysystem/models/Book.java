@@ -6,12 +6,22 @@ public class Book {
 	private String bookAuthor;
 	private String bookCategory;
 	private int bookPublishedYear;
+	private int id;
 	
-	public Book(String title, String author, String category, int pubYear) {
+	public Book(int id, String title, String author, String category, int pubYear) {
+		this.id = id;
 		bookTitle = title;
 		bookAuthor = author;
 		bookCategory = category;
 		bookPublishedYear = pubYear;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getBookTitle() {
