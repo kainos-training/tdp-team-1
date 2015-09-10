@@ -69,7 +69,7 @@ public class DbConnector {
 			connection = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
-			
+
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";
@@ -94,14 +94,48 @@ public class DbConnector {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				Book book = new Book(rs.getInt("id"),
-						rs.getString("title"), rs.getString("author"),
-						rs.getString("category"), rs.getInt("publish_year"));
+				Book book = new Book(rs.getInt("id"), rs.getString("title"),
+						rs.getString("author"), rs.getString("category"),
+						rs.getInt("publish_year"));
 				books.add(book);
 			}
 			return books;
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			return books;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
+	}
+
+	public Book getBookById(int bookId) throws SQLException,
+			ClassNotFoundException {
+		Book book = new Book();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+
+			String getBookByIdQuery = "SELECT * FROM books WHERE id = ?";
+			preparedStatement.setInt(1, bookId);
+			preparedStatement = connection.prepareStatement(getBookByIdQuery);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			book.setId(resultSet.getInt("id"));
+			book.setBookTitle(resultSet.getString("title"));
+			book.setBookAuthor(resultSet.getString("author"));
+			book.setBookCategory(resultSet.getString("category"));
+			book.setBookPublishedYear(resultSet.getInt("publish_year"));
+
+			return book;
+		} catch (SQLException e) {
+			return book;
 		} finally {
 			if (connection != null) {
 				connection.close();

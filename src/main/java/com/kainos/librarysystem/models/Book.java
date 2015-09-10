@@ -16,6 +16,10 @@ public class Book {
 		bookPublishedYear = pubYear;
 	}
 
+	public Book() {
+		
+	}
+
 	public int getId() {
 		return id;
 	}
