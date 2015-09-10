@@ -45,7 +45,9 @@
 
 <div class="container-fluid">
 
-  <h3 class="kainos-result-header">Results for "really really long query that wrappps sjkhaskjhasdas kjhasdasd query"</h3>
+  <h3 class="kainos-result-header">${searchMessage}</h3>
+  
+  <#list books as book>
 
   <a href="#0">
     <div class="kainos-book-card">
@@ -54,42 +56,13 @@
       </div>
       <div class="col-xs-8 col-md-8 kainos-book-details">
         <span class="label label-success kainos-label">Available</span>
-        <h2>Puppet 2.7 Cookbook</h2>
-        <h3 class="kainos-book-author">Hello Author Man</h3>
-        <h4 class="kainos-book-category">Category name</h4>
+        <h2>${book.bookTitle} <span class="year">${book.bookPublishedYear} </span></h2>
+        <h3 class="kainos-book-author">${book.bookAuthor}</h3>
+        <h4 class="kainos-book-category">${book.bookCategory}</h4>
       </div>
     </div>
   </a>
-
-  <a href="#0">
-    <div class="kainos-book-card">
-      <div class="col-xs-4 col-md-2 kainos-book-cover">
-        <img src="http://placehold.it/100x150" class="img-responsive" />
-      </div>
-      <div class="col-xs-8 col-md-8 kainos-book-details">
-        <span class="label label-default kainos-label">Unavailable</span>
-        <h2>Puppet 2.7 Cookbook</h2>
-        <h3 class="kainos-book-author">Hello Author Man</h3>
-        <h4 class="kainos-book-category">Category name</h4>
-      </div>
-    </div>
-  </a>
-
-  <a href="#0">
-    <div class="kainos-book-card">
-      <div class="col-xs-4 col-md-2 kainos-book-cover">
-        <img src="http://placehold.it/100x150" class="img-responsive" />
-      </div>
-      <div class="col-xs-8 col-md-8 kainos-book-details">
-        <span class="label label-success kainos-label">Available</span>
-        <h2>Puppet 2.7 Cookbook</h2>
-        <h3 class="kainos-book-author">Hello Author Man</h3>
-        <h4 class="kainos-book-category">Category name</h4>
-      </div>
-    </div>
-  </a>
-
-
+   </#list>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
