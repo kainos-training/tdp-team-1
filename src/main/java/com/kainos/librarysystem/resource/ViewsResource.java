@@ -8,8 +8,11 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriBuilder;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.libarysystem.dbConnector.DbConnector;
@@ -53,4 +56,13 @@ public class ViewsResource {
 		return new SearchResults(books, searchMessage + searchCriteria + " & "
 				+ searchText, searchText);
 	}
+	@POST
+	@Timed
+	@Path("/return/{id}")
+	@Produces(MediaType.TEXT_HTML)
+	public Response returnBook(@PathParam("id") int id) throws Exception{
+		dbConnector.returnBook(id);
+		return Response.seeOther(UriBuilder.fromUri("/index").build()).build();	
+	}
+	
 }
