@@ -69,7 +69,10 @@ public class DbConnector {
 			connection = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
-			
+			System.out.println("**************************");
+			System.out.println(searchText);
+			System.out.println(searchBy);
+			System.out.println("**************************");
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";
@@ -87,20 +90,23 @@ public class DbConnector {
 				return books;
 			}
 
-			String query = "SELECT * FROM books WHERE ? = ?";
+			String query = "SELECT * FROM books WHERE " + searchByColumnName
+					+ " = ?";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, searchByColumnName);
-			preparedStatement.setString(2, searchText);
+			preparedStatement.setString(1, searchText);
+
+			System.out.println(query);
+			System.out.println("**************************");
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				Book book = new Book(rs.getInt("id"),
-						rs.getString("title"), rs.getString("author"),
-						rs.getString("category"), rs.getInt("publish_year"));
+				Book book = new Book(rs.getInt("id"), rs.getString("title"),
+						rs.getString("author"), rs.getString("category"),
+						rs.getInt("publish_year"));
 				books.add(book);
 			}
 			return books;
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			return books;
 		} finally {
 			if (connection != null) {

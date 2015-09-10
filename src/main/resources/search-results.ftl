@@ -5,7 +5,7 @@
     <title>kLibrary &middot; Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.min.css" media="screen">
   </head>
   <body>
 
@@ -65,6 +65,6 @@
    </#list>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
