@@ -131,7 +131,7 @@ public class DbConnector {
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
 
-			String query = "UPDATE books SET flag=0 WHERE id = ?";
+			String query = "UPDATE books SET flag=0, borrow_date=NULL, borrower_name=NULL WHERE id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, id + "");
 
