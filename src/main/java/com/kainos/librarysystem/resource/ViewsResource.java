@@ -28,10 +28,11 @@ public class ViewsResource {
 	public View sayHello() {
 
 		ArrayList<Book> booksList = new ArrayList<Book>();
-		booksList.add(new Book("Pandora's Box", "Andrew A Adams", "Management",
-				2008));
-		booksList.add(new Book("Puppet 2.7 Cookbook", "John Arundel",
+		booksList.add(new Book(0, "Pandora's Box", "Andrew A Adams",
+				"Management", 2008));
+		booksList.add(new Book(1, "Puppet 2.7 Cookbook", "John Arundel",
 				"Technical", 2010));
+
 		return new Index(booksList);
 	}
 
@@ -44,12 +45,11 @@ public class ViewsResource {
 
 		ArrayList<Book> books = new ArrayList<Book>();
 		// TODO: call DB connector passing search parameters
-		
+
 		if (books.size() == 0) {
 			return new Index(books, "No matches for criteria " + searchCriteria
 					+ " & " + searchText);
 		}
-
 		return new Index(books);
 	}
 
