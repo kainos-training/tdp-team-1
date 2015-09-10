@@ -17,6 +17,7 @@ import javax.ws.rs.core.UriBuilder;
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.libarysystem.dbConnector.DbConnector;
 import com.kainos.librarysystem.models.Book;
+import com.kainos.librarysystem.views.BookDetails;
 import com.kainos.librarysystem.views.Index;
 import com.kainos.librarysystem.views.SearchResults;
 
@@ -36,6 +37,15 @@ public class ViewsResource {
 	public View index() throws Exception {
 		List<Book> booksList = dbConnector.getBooksFromDB();
 		return new Index(booksList);
+	}
+
+	@GET
+	@Timed
+	@Path("/bookDetails/{id}")
+	@Produces(MediaType.TEXT_HTML)
+	public View getBook(@PathParam("id") int id) throws Exception{
+		Book fetchedBook = dbConnector.getBookById(id);
+		return new BookDetails(fetchedBook);
 	}
 
 	@POST

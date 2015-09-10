@@ -72,6 +72,7 @@ public class DbConnector {
 			connection = (Connection) DriverManager.getConnection(
 					"jdbc:mysql://localhost/library", "library_user",
 					"kainos2015");
+
 			switch (searchBy) {
 			case "Year":
 				searchByColumnName = "publish_year";
@@ -116,6 +117,42 @@ public class DbConnector {
 		}
 	}
 
+	public Book getBookById(int bookId) throws SQLException,
+			ClassNotFoundException {
+		Book book = new Book();
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = (Connection) DriverManager.getConnection(
+					"jdbc:mysql://localhost/library", "library_user",
+					"kainos2015");
+
+			String getBookByIdQuery = "SELECT * FROM books WHERE id = ?";
+			preparedStatement = connection.prepareStatement(getBookByIdQuery);
+			preparedStatement.setInt(1, bookId);
+			ResultSet resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				book.setId(resultSet.getInt("id"));
+				book.setBookTitle(resultSet.getString("title"));
+				book.setBookAuthor(resultSet.getString("author"));
+				book.setBookCategory(resultSet.getString("category"));
+				book.setBookPublishedYear(resultSet.getInt("publish_year"));
+			}
+
+			return book;
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			if (connection != null) {
+				connection.close();
+			}
+
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
+	}
+
 	public void borrowBook(String name, int bookID)
 			throws ClassNotFoundException, SQLException {
 		boolean bookAvailability = false;
@@ -146,8 +183,7 @@ public class DbConnector {
 		}
 	}
 
-	public void returnBook(int id)
-			throws SQLException, ClassNotFoundException {
+	public void returnBook(int id) throws SQLException, ClassNotFoundException {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = (Connection) DriverManager.getConnection(

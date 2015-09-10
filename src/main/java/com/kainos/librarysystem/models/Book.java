@@ -26,6 +26,10 @@ public class Book {
 		bookPublishedYearString = Integer.toString(pubYear);
 	}
 
+	public Book() {
+		
+	}
+
 	public int getId() {
 		return id;
 	}

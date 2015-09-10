@@ -8682,6 +8682,10 @@ span.year {
 	font-size: .9em;
 }
 
+.year {
+	color: red !important;
+}
+
 .kainos-book-details h3 {
 	color: #4d4d4d;
 	font-size: 16px;
