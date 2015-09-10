@@ -1,5 +1,7 @@
 package com.kainos.librarysystem.models;
 
+import org.joda.time.LocalDate;
+
 public class Book {
 
 	private String bookTitle;
@@ -8,6 +10,12 @@ public class Book {
 	private int bookPublishedYear;
 	private String bookPublishedYearString;
 	private int id;
+	private String borrowerName;
+	private boolean flag;
+	private LocalDate borrowedDate;
+	
+
+	
 	
 	public Book(int id, String title, String author, String category, int pubYear) {
 		this.id = id;
@@ -60,6 +68,42 @@ public class Book {
 	
 	public void setBookPublishedYear(int bookPublishedYear) {
 		this.bookPublishedYear = bookPublishedYear;
+	}
+
+
+
+	public String getBorrowerName() {
+		return borrowerName;
+	}
+
+
+
+	public void setBorrowerName(String borrowerName) {
+		this.borrowerName = borrowerName;
+	}
+
+
+
+	public boolean isFlag() {
+		return flag;
+	}
+
+
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
+	}
+
+
+
+	public LocalDate getBorrowedDate() {
+		return borrowedDate;
+	}
+
+
+
+	public void setBorrowedDate(LocalDate borrowedDate) {
+		this.borrowedDate = borrowedDate;
 	}
 	
 	
