@@ -32,7 +32,7 @@ public class ViewsResource {
 
 	@POST
 	@Timed
-	@Path("/index")
+	@Path("/search")
 	@Produces(MediaType.TEXT_HTML)
 	public View searchBooks(@FormParam("searchCriteria") String searchCriteria,
 			@FormParam("searchText") String searchText) throws Exception {
