@@ -9,11 +9,14 @@ import com.kainos.librarysystem.models.Book;
 public class SearchResults extends View {
 	private List<Book> books;
 	private String searchMessage;
+	private String searchCriteria;
 
-	public SearchResults(List<Book> bookList, String searchMessage) {
+	public SearchResults(List<Book> bookList, String searchMessage,
+			String searchCriteria) {
 		super("/search-results.ftl");
 		books = bookList;
 		this.searchMessage = searchMessage;
+		this.searchCriteria = searchCriteria;
 	}
 
 	public List<Book> getBooks() {
@@ -30,5 +33,13 @@ public class SearchResults extends View {
 
 	public void setSearchMessage(String searchMessage) {
 		this.searchMessage = searchMessage;
+	}
+
+	String getSearchCriteria() {
+		return searchCriteria;
+	}
+
+	void setSearchCriteria(String searchCriteria) {
+		this.searchCriteria = searchCriteria;
 	}
 }
