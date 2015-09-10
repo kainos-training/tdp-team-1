@@ -2,7 +2,6 @@ package com.kainos.librarysystem.resource;
 
 import io.dropwizard.views.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.FormParam;
@@ -15,6 +14,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.kainos.libarysystem.dbConnector.DbConnector;
 import com.kainos.librarysystem.models.Book;
 import com.kainos.librarysystem.views.Index;
+import com.kainos.librarysystem.views.SearchResults;
 
 @Path("/")
 public class ViewsResource {
@@ -32,17 +32,20 @@ public class ViewsResource {
 
 	@POST
 	@Timed
-	@Path("/index")
+	@Path("/search")
 	@Produces(MediaType.TEXT_HTML)
 	public View searchBooks(@FormParam("searchCriteria") String searchCriteria,
 			@FormParam("searchText") String searchText) throws Exception {
 
+		String searchMessage = "";
 		List<Book> books = dbConnector.searchBooks(searchText, searchCriteria);
 
 		if (books.size() == 0) {
-			return new Index(books, "No matches for criteria " + searchCriteria
-					+ " & " + searchText);
+			searchMessage = "No matches for criteria ";
+		} else {
+			searchMessage = "Matches found for criteria ";
 		}
-		return new Index(books);
+		return new SearchResults(books, searchMessage + searchCriteria + " & "
+				+ searchText);
 	}
 }

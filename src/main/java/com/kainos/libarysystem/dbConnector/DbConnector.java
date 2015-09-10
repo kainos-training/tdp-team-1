@@ -63,6 +63,7 @@ public class DbConnector {
 	public List<Book> searchBooks(String searchText, String searchBy)
 			throws SQLException, ClassNotFoundException {
 		List<Book> books = new ArrayList<Book>();
+		String searchByColumnName;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = (Connection) DriverManager.getConnection(
@@ -70,28 +71,35 @@ public class DbConnector {
 					"kainos2015");
 			
 			switch (searchBy) {
-			case "date":
-			case "author":
-			case "title":
-			case "category":
-
-				String query = "SELECT * FROM books WHERE ? = ?";
-				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, searchBy);
-				preparedStatement.setString(2, searchText);
-				ResultSet rs = preparedStatement.executeQuery();
-
-				while (rs.next()) {
-					Book book = new Book(rs.getInt("id"),
-							rs.getString("title"), rs.getString("author"),
-							rs.getString("category"), rs.getInt("publish_year"));
-					books.add(book);
-				}
-				return books;
-
+			case "Year":
+				searchByColumnName = "publish_year";
+				break;
+			case "Author":
+				searchByColumnName = "author";
+				break;
+			case "Title":
+				searchByColumnName = "title";
+				break;
+			case "Category":
+				searchByColumnName = "category";
+				break;
 			default:
 				return books;
 			}
+
+			String query = "SELECT * FROM books WHERE ? = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, searchByColumnName);
+			preparedStatement.setString(2, searchText);
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {
+				Book book = new Book(rs.getInt("id"),
+						rs.getString("title"), rs.getString("author"),
+						rs.getString("category"), rs.getInt("publish_year"));
+				books.add(book);
+			}
+			return books;
 		} catch(SQLException e) {
 			return books;
 		} finally {
