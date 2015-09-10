@@ -5,7 +5,7 @@
     <title>kLibrary &middot; Search results</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap/css/bootstrap.min.css" media="screen">
   </head>
   <body>
 
@@ -20,12 +20,12 @@
           <a class="navbar-brand kainos-branding" href="#">kLibrary</a>
         </div>
 
-        <form class="kainos-search-group" role="search">
+        <form class="kainos-search-group" role="search" action="search" method="post">
           <div class="form-group">
 
-            <input type="text" class="form-control input-sm kainos-search" placeholder="Search" value="${searchCriteria}">
+            <input type="text" class="form-control input-sm kainos-search" placeholder="Search" value="${searchText}"  name="searchText">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <select class="form-control input-sm kainos-criteria" id="select">
+            <select class="form-control input-sm kainos-criteria" id="select" name="searchCriteria">
               <option>Title</option>
               <option>Author</option>
               <option>Category</option>
@@ -56,7 +56,7 @@
       </div>
       <div class="col-xs-8 col-md-8 kainos-book-details">
         <span class="label label-success kainos-label">Available</span>
-        <h2>${book.bookTitle} <span class="year">${book.bookPublishedYear} </span></h2>
+        <h2>${book.bookTitle} <span class="year">${book.bookPublishedYearString}</span></h2>
         <h3 class="kainos-book-author">${book.bookAuthor}</h3>
         <h4 class="kainos-book-category">${book.bookCategory}</h4>
       </div>
@@ -65,6 +65,6 @@
    </#list>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script src="/assets/stylesheets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
