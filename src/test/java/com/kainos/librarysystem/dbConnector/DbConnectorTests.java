@@ -83,4 +83,12 @@ public class DbConnectorTests extends BasicJDBCTestCaseAdapter {
 		verifyConnectionClosed();
 	}
 	
+	@Test
+	public void testReturnBook() throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnector();
+		connector.returnBook(1);
+		verifyAllStatementsClosed();
+		verifyConnectionClosed();
+	}
+	
 }
