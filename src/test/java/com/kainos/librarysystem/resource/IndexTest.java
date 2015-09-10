@@ -11,6 +11,8 @@ import io.dropwizard.views.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.core.Response;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -99,6 +101,19 @@ public class IndexTest {
 			assertTrue(((SearchResults) response).getSearchMessage().contains(
 					"No matches for criteria"));
 			verify(connector.searchBooks("Pro Git", "Title"));
+		} catch (Exception e) {
+			assert (false);
+		}
+	}
+	@Test
+	public void returnsToIndexViewAterBookReturned(){
+		DbConnector connector = mock(DbConnector.class);
+
+		// Call test method
+		ViewsResource viewsResource = new ViewsResource(connector);
+
+		try {
+			viewsResource.returnBook(1);
 		} catch (Exception e) {
 			assert (false);
 		}
