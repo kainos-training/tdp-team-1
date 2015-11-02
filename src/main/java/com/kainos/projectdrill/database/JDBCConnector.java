@@ -1,4 +1,4 @@
-package database;
+package com.kainos.projectdrill.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
