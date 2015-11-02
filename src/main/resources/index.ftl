@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="" type="com.kainos.training.dropwizard.login.frontends.views.LoginSuccessView" -->
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta charset="UTF-8">
@@ -5,11 +6,23 @@
 		<script src="/assets/javascripts/hello.js"></script>
 	</head>
 	
-	<main id="content" role="main">
-		<div>
-			<p>Hello world!</p>
-		</div>
-		
-		<button onclick="sayHello()">Say Hello!</button>
-	</main>
+<main>
+
+<ul>
+	<#if frameworks??>
+			<#list frameworks as framework>
+			    <li>
+			    	${framework.getFrameworkName()}
+			    	</li> 
+			</#list>
+	<#else>
+			<li>Go and get some friends....</li>
+	</#if>
+</ul>
+
+</main>
+
 </html>
+
+
+
