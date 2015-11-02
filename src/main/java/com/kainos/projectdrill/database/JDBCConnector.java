@@ -13,9 +13,9 @@ import com.kainos.projectdrill.model.framework.Framework;
 public class JDBCConnector {
 
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_ADDRESS = "jdbc://localhost:3306/ktechDB"; //TODO: Fix port number
-	private static final String USERNAME = "ktech_user";
-	private static final String PASSWORD = "1Password2";
+	private static final String DB_ADDRESS = "jdbc:mysql://localhost:3306/ktechDB"; //TODO: Fix port number
+	private static final String USERNAME = "root";
+	private static final String PASSWORD = "";
 	private Connection connection;
 	
 	
@@ -41,14 +41,4 @@ public class JDBCConnector {
 		
 	}
 	
-	public Framework selectOneFramework(int id) throws SQLException{
-		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = " + id);
-		
-		ResultSet results = statement.executeQuery();
-		
-		Framework newFramework = new Framework(results.getInt(1), results.getString(2), results.getString(3), results.getString(4), results.getString(5));
-		
-		return newFramework;
-	}
 }
