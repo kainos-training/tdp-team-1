@@ -62,8 +62,8 @@
                     <tr>
                         <th scope="col" class="uppercase">Name</th>
                         <th scope="col" class="uppercase">Vendor</th>
-                        <th scope="col" class="uppercase">License</th>
                         <th scope="col" class="uppercase">Expert</th>
+                        <th scope="col" class="uppercase">License</th>
                     </tr>
 
                 </thead>

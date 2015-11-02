@@ -3,15 +3,17 @@ package com.kainos.projectdrill.resource;
 import io.dropwizard.views.View;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import com.codahale.metrics.annotation.Timed;
-import com.kainos.projectdrill.views.Index;
 
-import database.JDBCConnector;
+import com.codahale.metrics.annotation.Timed;
+import com.kainos.projectdrill.database.JDBCConnector;
+import com.kainos.projectdrill.model.framework.Framework;
+import com.kainos.projectdrill.views.Index;
 
 @Path("/")
 public class ViewsResource {
@@ -27,8 +29,9 @@ public class ViewsResource {
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
 	public View sayHello() throws SQLException{
-					
-		return new Index(this.database);
+		
+		List<Framework> allFrameworks = database.selectAllFrameworks();
+		return new Index(allFrameworks);
 	}
 	
 }

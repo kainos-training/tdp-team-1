@@ -2,6 +2,7 @@ package com.kainos.projectdrill;
 
 import com.google.common.collect.ImmutableMap;
 import com.kainos.projectdrill.configuration.ProjectDrillConfiguration;
+import com.kainos.projectdrill.database.JDBCConnector;
 import com.kainos.projectdrill.resource.ViewsResource;
 
 import io.dropwizard.Application;
@@ -9,7 +10,6 @@ import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
-
 
 public class ProjectDrillApplication extends Application<ProjectDrillConfiguration> {
 	
@@ -20,7 +20,10 @@ public class ProjectDrillApplication extends Application<ProjectDrillConfigurati
 	@Override
 	public void run(ProjectDrillConfiguration configuration, Environment environment)
 			throws Exception {
-		final ViewsResource resource = new ViewsResource();
+
+		JDBCConnector connector = new JDBCConnector();
+		
+		final ViewsResource resource = new ViewsResource(connector);
 		environment.jersey().register(resource);
 	}
 	
