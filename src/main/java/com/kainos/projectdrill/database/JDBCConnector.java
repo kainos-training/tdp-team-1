@@ -13,7 +13,7 @@ import com.kainos.projectdrill.model.framework.Framework;
 public class JDBCConnector {
 
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_ADDRESS = "jdbc://localhost:3306/team1"; //TODO: Fix port number
+	private static final String DB_ADDRESS = "jdbc://localhost:3306/ktechDB"; //TODO: Fix port number
 	private static final String USERNAME = "ktech_user";
 	private static final String PASSWORD = "1Password2";
 	private Connection connection;
