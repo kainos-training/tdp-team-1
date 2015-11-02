@@ -1,2 +1,2 @@
-mysql -uroot < "dbSchema.sql"
-mysql -uroot < "dbContent.sql"
+mysql -uroot -p < "dbInit.sql"
+
