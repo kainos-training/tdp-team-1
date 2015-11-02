@@ -14,15 +14,15 @@ public class JDBCConnector {
 
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DB_ADDRESS = "jdbc://localhost:1111/team1"; //TODO: Fix port number
-	private static final String USERNAME = "user";
-	private static final String PASSWORD = "password";
+	private static final String USERNAME = "ktech_user";
+	private static final String PASSWORD = "1Password2";
 	private Connection connection;
 	
 	
 	public JDBCConnector() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
 		
-		connection = DriverManager.getConnection(DB_ADDRESS);	
+		connection = DriverManager.getConnection(DB_ADDRESS, USERNAME, PASSWORD);	
 	}
 	
 	public List<Framework> selectAllFrameworks() throws SQLException {
@@ -38,7 +38,6 @@ public class JDBCConnector {
 		}
 		
 		return frameworkList;
-		
 		
 	}
 }
