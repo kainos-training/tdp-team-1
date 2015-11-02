@@ -18,20 +18,5 @@ import database.JDBCConnector;
 
 public class IndexTest {
 	
-	JDBCConnector mockClient = mock(JDBCConnector.class);
-	List<Framework> frameworks =  new ArrayList<Framework>();
-	
-	@Test
-	public void testGetFriend() throws SQLException {
-		// Set our mocks up to return the results we want
-		// addFriend should give us a response
-		when(mockClient.selectAllFrameworks()).thenReturn(frameworks);
-		
-		// run our function
-		new Index(mockClient);
-		
-		// check that our mock was called
-		verify(mockClient).selectAllFrameworks();
-	}
 
 }
