@@ -2,12 +2,20 @@ package com.kainos.projectdrill.model.framework;
 
 public class Framework {
 	
-	
 	private int id;
 	private String frameworkName;
 	private String license;
 	private String expert;
 	private String vendor;
+	
+	public Framework(String frameworkName, 
+			 String license, String expert, String vendor) {
+	
+		setFrameworkName(frameworkName);
+		setLicense(license);
+		setExpert(expert);
+		setVendor(vendor);
+	}
 	
 	public Framework(int id, String frameworkName, 
 					 String license, String expert, String vendor) {
@@ -17,7 +25,6 @@ public class Framework {
 		setLicense(license);
 		setExpert(expert);
 		setVendor(vendor);
-
 	}
 	
 	public int getId() {
