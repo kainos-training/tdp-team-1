@@ -1,0 +1,371 @@
+/*Reset --------------------------------------------
+---------------------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*Variables -----------------------------------------
+---------------------------------------------------*/
+/*Base Styles ---------------------------------------
+---------------------------------------------------*/
+body {
+  font-size: 60%;
+  font-family: 'Montserrat', sans-serif; }
+
+header, .modal-header {
+  background-color: #1e495f; }
+
+header {
+  width: 100%; }
+
+/*Mixins & util -------------------------------------
+---------------------------------------------------*/
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.visiually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+.image-replace {
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  text-indent: -9999px;
+  background-repeat: no-repeat; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+/*Header & Nav --------------------------------------
+---------------------------------------------------*/
+header {
+  color: #ffffff;
+  width: 100%; }
+
+.logo {
+  max-width: 30%;
+  background-color: #2B2D33;
+  height: 100%;
+  padding: 2.55em 15em 2.55em 5em; }
+
+nav {
+  width: 70%; }
+  nav ul {
+    display: block; }
+    nav ul li {
+      display: inline-block;
+      border-right: 2px solid #224051;
+      position: relative; }
+
+.active::before {
+  border-style: solid;
+  border-width: 0 .75em 1em .75em;
+  border-color: transparent transparent white transparent;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: "";
+  margin-left: -.6em; }
+
+.technolgies {
+  background: url("../img/nav-sprites.png") 0 0; }
+  .technolgies:hover {
+    background: url(../img/nav-sprites.png) 0px -80px; }
+
+.search {
+  background: url("../img/nav-sprites.png") 0 160px; }
+  .search:hover {
+    background: url("../img/nav-sprites.png") 0 82px; }
+
+/*Container -----------------------------------------
+---------------------------------------------------*/
+.container {
+  width: 91%;
+  margin: 0 auto; }
+
+.row {
+  width: 100%;
+  vertical-align: center;
+  margin: 5em 0; }
+  .row h1 {
+    padding-top: .37em; }
+
+/*Typography ----------------------------------------
+---------------------------------------------------*/
+.heading-one {
+  font-size: 3.2em;
+  font-weight: 800;
+  color: #ffffff; }
+  .heading-one span {
+    color: white;
+    font-weight: 300; }
+
+.heading-two {
+  color: #2B2D33;
+  font-size: 2.8em; }
+
+.heading-three {
+  color: #ffffff;
+  font-size: 2.4em;
+  font-weight: 300; }
+
+/*Table ---------------------------------------------
+---------------------------------------------------*/
+.technology-table {
+  width: 100%; }
+  .technology-table thead {
+    background-color: #fbfbfc;
+    border: 1px solid #E4E4E6; }
+    .technology-table thead th {
+      border-right: 1px solid #E4E4E6;
+      text-align: left;
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 1.4em;
+      padding: 1.9em 0 1.9em 1.5em; }
+  .technology-table tbody tr {
+    border-bottom: 1px solid #E4E4E6; }
+  .technology-table tbody td {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 1.3em;
+    padding: 4em 1.5em 4em 1.5em; }
+  .technology-table a {
+    text-decoration: none;
+    color: #3E88C0;
+    transition: color 0.5s; }
+    .technology-table a:hover {
+      color: #326d99;
+      text-decoration: underline; }
+
+.technology-name {
+  display: block;
+  color: #3E88C0;
+  font-size: 1.6em;
+  font-weight: 900;
+  margin-bottom: .5em; }
+
+/*Modal ---------------------------------------------
+---------------------------------------------------*/
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 600; }
+
+.modal-wrapper {
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: #ffffff;
+  border-radius: .4em;
+  margin-top: 5em; }
+
+.modal {
+  display: inline-block;
+  float: right; }
+
+.modal-overlay {
+  opacity: 0;
+  z-index: -100;
+  transform: scale(0.5);
+  transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+input:checked ~ .modal-overlay {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 800; }
+
+.modal-header {
+  padding: 2.8em 2.5em;
+  border-radius: .4em .4em 0 0; }
+
+.close-modal {
+  position: absolute;
+  top: 1.5em;
+  right: .8em;
+  font-size: 2em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.5s;
+  cursor: pointer; }
+  .close-modal:hover {
+    color: white; }
+
+/*Form ----------------------------------------------
+---------------------------------------------------*/
+.btn {
+  color: #ffffff;
+  background-color: inherit;
+  border-radius: .25em;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.6em;
+  font-weight: 200;
+  padding: 1.2em 2.5em;
+  transition: background-color 0.5s;
+  cursor: pointer; }
+
+.primary {
+  background-color: #3aca4e; }
+  .primary:hover {
+    background-color: #2da93f; }
+
+.close {
+  font-size: 1.5em;
+  text-decoration: underline;
+  color: rgba(0, 0, 0, 0.3);
+  transition: color 0.5s;
+  cursor: pointer;
+  margin: 1.5em 4em 0 0; }
+  .close:hover {
+    color: rgba(0, 0, 0, 0.6); }
+
+.form-group {
+  margin-top: 3em; }
+  .form-group label {
+    font-size: 1.4em;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: .5em;
+    display: block; }
+  .form-group input {
+    display: block;
+    font-size: 1.4em;
+    padding: .8em;
+    color: rgba(0, 0, 0, 0.5);
+    max-width: 75%;
+    width: 75%; }
+
+.form-body {
+  padding: 0 0 3em 2.5em; }
+
+.form-footer {
+  border-top: 1px solid #D8D8D8;
+  padding: 3em 2em 3em 0;
+  vertical-align: center; }
+
+/*Validation messaging ------------------------------
+---------------------------------------------------*/
+.validation-message {
+  position: absolute;
+  background-color: inherit;
+  bottom: 1%;
+  right: 1%;
+  font-size: 1.6em;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5em 1.5em 1.3em 1.5em;
+  border-radius: .25em;
+  max-width: 28em; }
+
+.error {
+  background-color: #f2dede;
+  color: #a94442; }
+
+.success {
+  background-color: #dff0d8;
+  color: #3c763d; }
+
+.close-validation {
+  margin-bottom: 1em;
+  width: 1em;
+  cursor: pointer;
+  display: block; }
+
+/*Media queries -------------------------------------
+---------------------------------------------------*/
+@media screen and (max-width: 960px) {
+  body {
+    font-size: 50%; }
+
+  .logo {
+    max-width: 25%;
+    background-color: #2B2D33;
+    height: 100%;
+    padding: 3em 12em 3em 5em; }
+
+  .modal-wrapper {
+    max-width: 500px; } }
+@media screen and (max-width: 780px) {
+  body {
+    font-size: 45%; }
+
+  .logo {
+    width: 30%;
+    background-color: #2B2D33;
+    height: 100%;
+    padding: 3.2em 0em 3.2em 4em; }
+
+  .modal-wrapper {
+    max-width: 450px; } }
+@media screen and (max-width: 720px) {
+  .logo {
+    display: block;
+    min-width: 100%;
+    text-align: center;
+    padding: 3em 0; }
+
+  nav {
+    width: 100%; }
+
+  .modal-wrapper {
+    max-width: 450px; } }
+
+/*# sourceMappingURL=styles.css.map */
