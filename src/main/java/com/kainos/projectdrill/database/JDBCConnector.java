@@ -40,4 +40,15 @@ public class JDBCConnector {
 		return frameworkList;
 		
 	}
+	
+	public Framework selectOneFramework(int id) throws SQLException{
+		
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = " + id);
+		
+		ResultSet results = statement.executeQuery();
+		
+		Framework newFramework = new Framework(results.getInt(1), results.getString(2), results.getString(3), results.getString(4), results.getString(5));
+		
+		return newFramework;
+	}
 }
