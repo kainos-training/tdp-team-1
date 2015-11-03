@@ -122,6 +122,9 @@ INSERT INTO developerFramework(developerId, frameworkId) VALUES(2, 6);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(9, 7);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(8, 5);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 4);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 2);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(8, 2);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(9, 2);
 
 DROP USER 'ktech_user'@'localhost';
 CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
