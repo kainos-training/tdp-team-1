@@ -17,6 +17,18 @@ CREATE TABLE project (
 	projectName varchar(50) NOT NULL
 );
 
+CREATE TABLE developer (
+	id int primary key auto_increment,
+	name varchar(50) NOT NULL
+);
+
+CREATE TABLE developerFramework (
+	developerId int,
+	frameworkId int,
+	FOREIGN KEY (developerId) REFERENCES developer(id),
+	FOREIGN KEY (frameworkId) REFERENCES framework(id)
+);
+
 CREATE TABLE projectFramework (
 	projectId int,
 	frameworkId int,
@@ -74,6 +86,19 @@ INSERT INTO projectFramework(projectId, frameworkId) VALUES(4, 4);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(4, 2);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(5, 2);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(6, 2);
+
+
+INSERT INTO developer(name) VALUES("EDU");
+INSERT INTO developer(name) VALUES("ZOE");
+INSERT INTO developer(name) VALUES("ABBA");
+INSERT INTO developer(name) VALUES("CORMY");
+INSERT INTO developer(name) VALUES("Simon");
+
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(1, 6);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(2, 5);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(3, 4);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(4, 3);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(5, 1);
 
 DROP USER 'ktech_user'@'localhost';
 CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
