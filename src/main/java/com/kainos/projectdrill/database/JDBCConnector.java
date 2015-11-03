@@ -108,11 +108,6 @@ public class JDBCConnector {
 	}
 	
 	public void updateExpert(int frameworkId, String expert) throws SQLException {
-		
-		System.out.println("1234567898765432345678987654323456789");
-		System.out.println("ExpertName:" + expert);
-		System.out.println("Framework ID:" + frameworkId);
-		
 		PreparedStatement ps = connection.prepareStatement("UPDATE framework SET expert = ? WHERE id = ?");
 		
 		ps.setString(1, expert);
