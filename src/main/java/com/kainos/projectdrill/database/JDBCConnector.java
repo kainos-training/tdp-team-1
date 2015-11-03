@@ -63,6 +63,21 @@ public class JDBCConnector {
 		return projectNames;
 	}
 	
+	public List<String> selectDevelopersForFramework(int frameworkId) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("CALL getDevelopers(?)");
+		statement.setInt(1, frameworkId);
+		
+		ResultSet results = statement.executeQuery();
+		
+		List<String> developerNames = new ArrayList<>();
+		
+		while(results.next()) {
+			developerNames.add(results.getString(1));
+		}
+		
+		return developerNames;
+	}
+	
 
 
 
