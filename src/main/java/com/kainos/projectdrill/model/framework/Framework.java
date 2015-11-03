@@ -8,6 +8,8 @@ public class Framework {
 	private String expert;
 	private String vendor;
 	
+	public Framework() { }
+	
 	public Framework(String frameworkName, String license, String expert, String vendor) {
 		setFrameworkName(frameworkName);
 		setLicense(license);
@@ -63,5 +65,14 @@ public class Framework {
 	public void setVendor(String vendor) {
 		this.vendor = vendor;
 	}
+
+	@Override
+	public String toString() {
+		return "Framework [id=" + id + ", frameworkName=" + frameworkName
+				+ ", license=" + license + ", expert=" + expert + ", vendor="
+				+ vendor + "]";
+	}
+	
+	
 	
 }
