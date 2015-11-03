@@ -38,6 +38,57 @@
 				<a href="/frameworksList" class="breadcrumb-item"><span>&#10094</span>Back</a>
 			</p>
 			<h1 class="heading-two pull-left">${framework.getFrameworkName()}</h1>
+			
+			<div class="modal">
+
+                        <input class="visiually-hidden" id="modal-trigger" type="checkbox">
+                        <label class="btn primary pull-right" for="modal-trigger">Edit framework</label>
+
+                        <div class="modal-overlay">
+
+                            <div class="modal-wrapper">
+
+                                <div class="modal-header">
+
+                                    <label for="modal-trigger" class="close-modal">&#10006;</label>
+                                    <h2 class="heading-three">Edit framework</h2>
+
+                                </div>
+
+                                <form method="post" action="/updateExpert/${framework.getId()}">
+
+                                    <fieldset>
+
+                                        <div class="form-body">
+
+                                            <legend class="visiually-hidden">Edit framework</legend>
+
+                                            <div class="form-group">
+
+                                                <label for="expert-name">Expert name</label>
+                                                <input id="expert-name" type="text" name="expertName"> 
+ 
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-footer clearfix">
+                                            <input class="btn primary pull-right" type="submit" name="submit" value="Submit framework">
+
+                                            <label class="close pull-right" for="modal-trigger">Cancel</label>
+
+                                        </div>
+
+                                    </fieldset>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+			
 			<dl class="pull-left">
 				<div class="dl-group pull-left">
 					<dt class="uppercase pull-left">Vendor</dt>

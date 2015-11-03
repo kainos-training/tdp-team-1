@@ -18,7 +18,7 @@ public class JDBCConnector {
 																					// port
 																					// number
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "ch@ngeme1";
 
 	private Connection connection;
 
@@ -26,7 +26,7 @@ public class JDBCConnector {
 		Class.forName(DRIVER);
 
 		connection = DriverManager
-				.getConnection(DB_ADDRESS, USERNAME, null);
+				.getConnection(DB_ADDRESS, USERNAME, PASSWORD);
 	}
 
 	public List<Framework> selectAllFrameworks() throws SQLException {
@@ -90,10 +90,16 @@ public class JDBCConnector {
 	}
 	
 	public void updateExpert(int frameworkId, String expert) throws SQLException {
-		PreparedStatement ps = connection.prepareStatement("UPDATE framework SET expert = ? WHERE framework.id = ?");
 		
-		ps.setInt(1, frameworkId);
-		ps.setString(2, expert);
+		System.out.println("1234567898765432345678987654323456789");
+		System.out.println("ExpertName:" + expert);
+		System.out.println("Framework ID:" + frameworkId);
+		
+		PreparedStatement ps = connection.prepareStatement("UPDATE framework SET expert = ? WHERE id = ?");
+		
+		ps.setString(1, expert);
+		ps.setInt(2, frameworkId);
+		
 		
 		ps.execute();
 	}
