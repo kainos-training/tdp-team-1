@@ -36,6 +36,16 @@ CREATE TABLE projectFramework (
 	FOREIGN KEY (frameworkId) REFERENCES framework(id)
 );
 
+CREATE TABLE review (
+	id int primary key auto_increment,
+	name varchar(50) NOT NULL,
+	review TEXT,
+	frameworkId int,
+	FOREIGN KEY (frameworkId) REFERENCES framework(id)
+);
+
+
+
 DELIMITER //
 CREATE PROCEDURE insertFramework(frameworkName varchar(50), license varchar(50), expert varchar(25), vendor varchar(25))
 BEGIN
@@ -125,6 +135,15 @@ INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 4);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 2);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(8, 2);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(9, 2);
+
+
+INSERT INTO review(name, review, frameworkId) VALUES("Eduardo Lima", "I liked it", 1);
+INSERT INTO review(name, review, frameworkId) VALUES("Zoe Bryant", "I liked it a lot", 1);
+INSERT INTO review(name, review, frameworkId) VALUES("Ghulam Abbas", "Not bad", 2);
+INSERT INTO review(name, review, frameworkId) VALUES("Will Hamill", "No.", 3);
+INSERT INTO review(name, review, frameworkId) VALUES("Cormac Curran", "How does this even work?", 4);
+
+
 
 DROP USER 'ktech_user'@'localhost';
 CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
