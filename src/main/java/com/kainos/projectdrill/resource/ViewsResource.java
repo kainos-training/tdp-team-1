@@ -5,7 +5,9 @@ import io.dropwizard.views.View;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -34,8 +36,13 @@ public class ViewsResource {
 	}
 	
 	@POST
-	@Path("/")
-	public void insertFramework() {
+	@Path("/insertFramework")
+	public void insertFramework(@FormParam("nameField") String newName, 
+								@FormParam("vendorField") String newVendor, 
+								@FormParam("licenseField") String newLicense,
+								@FormParam("expertField") String newExpert) throws SQLException {
+		
+		database.addNewFramework(newName, newLicense, newExpert, newVendor);
 		
 	}
 	

@@ -44,10 +44,10 @@
 
                     <h1 class="heading-two pull-left">Frameworks</h1>
                     
-                    <div class="modal">
+<div class="modal">
 
                         <input class="visiually-hidden" id="modal-trigger" type="checkbox">
-                        <label class="btn primary pull-right" for="modal-trigger">Add framework</label>
+                        <label class="btn primary pull-right" for="modal-trigger">Add a framework</label>
 
                         <div class="modal-overlay">
 
@@ -56,50 +56,50 @@
                                 <div class="modal-header">
 
                                     <label for="modal-trigger" class="close-modal">&#10006;</label>
-                                    <h2 class="heading-three">Add a new technology</h2>
+                                    <h2 class="heading-three">Add a new framework</h2>
 
                                 </div>
 
-                                <form method="post" action="#">
+                                <form method="post" action="insertFramework">
 
                                     <fieldset>
 
                                         <div class="form-body">
 
-                                            <legend class="visiually-hidden">Add a new technology</legend>
+                                            <legend class="visiually-hidden">Add a new framework</legend>
 
                                             <div class="form-group">
 
-                                                <label for="technology-name">Technology name</label>
-                                                <input id="technology-name" type="text" name="textfield"> 
+                                                <label for="framework-name">Framework name</label>
+                                                <input id="framework-name" type="text" name="nameField"> 
+ 
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label for="framework-vendor">Vendor</label>
+                                                <input id="framework-vendor" type="text" name="vendorField">
 
                                             </div>
 
                                             <div class="form-group">
 
-                                                <label for="technology-vendor">Vendor</label>
-                                                <input id="technology-vendor" type="text" name="textfield">
+                                                <label for="framework-license">License</label>
+                                                <input id="framework-license" type="text" name="licenseField"> 
 
                                             </div>
 
                                             <div class="form-group">
 
-                                                <label for="technology-license">License</label>
-                                                <input id="technology-license" type="text" name="textfield"> 
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label for="technology-expert">Expert</label>
-                                                <input id="technology-expert" type="text" name="textfield"> 
+                                                <label for="framework-expert">Expert</label>
+                                                <input id="framework-expert" type="text" name="expertField"> 
 
                                             </div>
 
                                         </div>
 
                                         <div class="form-footer clearfix">
-                                            <input class="btn primary pull-right" type="submit" name="submit" value="Submit Technology">
+                                            <input class="btn primary pull-right" type="submit" name="submit" value="Submit framework">
 
                                             <label class="close pull-right" for="modal-trigger">Cancel</label>
 
