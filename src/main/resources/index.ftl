@@ -124,7 +124,7 @@
            
             <div class="container">
             
-            <form action="#" method="get" class="searchFramework-form clearfix">
+            <form action="searchFrameworks" method="post" class="searchFramework-form clearfix">
                         
                 <fieldset>
                             
@@ -133,7 +133,7 @@
                     <div class="group pull-left">
                         
                         <label for="select-menu" class="framework-name">Search by</label>
-                        <select id="select-menu" name="select" class="float-left">
+                        <select id="select-menu" name="searchType" class="float-left">
                             <option value="frameworkName">Framework name</option>
                             <option value="license">License</option>
                             <option value="expert">Expert</option>
@@ -141,7 +141,7 @@
                         </select>
                     
                         <label for="framework-name" class="visiually-hidden">Framework name</label>
-                        <input id="framework-name" type="text" name="textfield" class="search-input" placeholder="AngularJS etc" maxLength='50' required> 
+                        <input id="framework-name" type="text" name="searchName" class="search-input" placeholder="AngularJS etc" maxLength='50' required> 
                         
                     </div>
                     
