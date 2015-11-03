@@ -24,16 +24,15 @@ public class ViewsResource {
 	JDBCConnector database;
 	
 	public ViewsResource(JDBCConnector database) throws SQLException, ClassNotFoundException{
-		this.database = new JDBCConnector();
+		this.database = database;
 	}
 	
 	@GET
 	@Timed
-	@Path("/")
+	@Path("/frameworksList")
 	@Produces(MediaType.TEXT_HTML)
-	public View sayHello() throws SQLException{
-		
-		List<Framework> allFrameworks = database.selectAllFrameworks();
+	public View getFrameworkList() throws SQLException{
+		List<Framework> allFrameworks = database.selectAllFrameworks();	
 		return new Index(allFrameworks);
 	}
 
