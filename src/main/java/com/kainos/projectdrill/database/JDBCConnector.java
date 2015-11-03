@@ -62,9 +62,6 @@ public class JDBCConnector {
 		
 		return projectNames;
 	}
-	
-
-
 
 	public Framework selectOneFramework(int id) throws SQLException{
 		
@@ -74,8 +71,6 @@ public class JDBCConnector {
 
 		ResultSet results = statement.executeQuery();
 		
-		System.out.println("Statement executed!!!");
-		
 		Framework framework;
 		
 		while(results.next()) {
@@ -83,15 +78,8 @@ public class JDBCConnector {
 					results.getString(2), results.getString(3),
 					results.getString(4), results.getString(5));
 			
-			System.out.println(framework);
-			
 			return framework;
-					
-			
-		}
-		
-		
-		
+		}		
 		return null;
 	}
 

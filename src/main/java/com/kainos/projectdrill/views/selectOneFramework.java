@@ -8,15 +8,11 @@ import com.kainos.projectdrill.model.framework.Framework;
 
 public class selectOneFramework extends View {
 	
-
 	private List<String> projects;
 	private Framework framework;
 	
-
-	
 	public selectOneFramework(Framework framework){
 		super("/selectOneFramework.ftl");
-		System.out.println(framework);
 		this.framework = framework;
 	}
 	
@@ -30,17 +26,11 @@ public class selectOneFramework extends View {
 		return framework;
 	}
 
-
 	public void setFramework(Framework framework) {
 		this.framework = framework;
 	}
 	
-	
-
 	public List<String> getProjects() {
 		return projects;
 	}
-	
-	
-
 }
