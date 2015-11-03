@@ -50,6 +50,16 @@ public class ViewsResourceTest {
 	}
 	
 	@Test
+	public void testIfSelectDevelopersIsCalled() throws ClassNotFoundException, SQLException {
+		resource = new ViewsResource(mockClient);
+		View actualView = resource.selectOneFramework(1);
+		
+		assertTrue(actualView instanceof selectOneFramework);
+		
+		verify(mockClient).selectDevelopersForFramework(1);
+	}
+	
+	@Test
 	public void testAddFramework() throws ClassNotFoundException, SQLException {
 		resource = new ViewsResource(mockClient);
 		Response response = resource.insertFramework("Name", "License", "Vendor", "Expert");
