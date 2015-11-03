@@ -150,7 +150,7 @@ public class JDBCConnector {
 	
 	public List<Framework> searchByLicense(String searchName) throws SQLException {
 		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE license = ?;");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE license LIKE ?;");
 		statement.setString(1, "%" + searchName + "%");
 		
 		ResultSet results = statement.executeQuery();
@@ -168,7 +168,7 @@ public class JDBCConnector {
 	
 	public List<Framework> searchByExpert(String searchName) throws SQLException {
 		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE expert = ?;");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE expert LIKE ?;");
 		statement.setString(1, "%" + searchName + "%");
 		
 		ResultSet results = statement.executeQuery();
@@ -186,7 +186,7 @@ public class JDBCConnector {
 	
 	public List<Framework> searchByVendor(String searchName) throws SQLException {
 		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE vendor = ?;");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE vendor LIKE ?;");
 		statement.setString(1, "%" + searchName + "%");
 		
 		ResultSet results = statement.executeQuery();
