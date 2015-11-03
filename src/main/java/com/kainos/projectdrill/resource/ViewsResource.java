@@ -71,6 +71,5 @@ public class ViewsResource {
 		database.addNewFramework(newName, newLicense, newExpert, newVendor);
 		return Response.seeOther(URI.create("/frameworksList")).build();
 	}
-	
-	
+
 }
