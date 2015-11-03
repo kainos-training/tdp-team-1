@@ -123,6 +123,37 @@
         </div>
            
             <div class="container">
+            
+            <form action="#" method="get" class="searchFramework-form clearfix">
+                        
+                <fieldset>
+                            
+                    <legend class="visiually-hidden">Search for framework</legend>
+                    
+                    <div class="group pull-left">
+                        
+                        <label for="select-menu" class="framework-name">Search by</label>
+                        <select id="select-menu" name="select" class="float-left">
+                            <option value="frameworkName">Framework name</option>
+                            <option value="license">License</option>
+                            <option value="expert">Expert</option>
+                            <option value="vendor">Vendor</option>
+                        </select>
+                    
+                        <label for="framework-name" class="visiually-hidden">Framework name</label>
+                        <input id="framework-name" type="text" name="textfield" class="search-input" placeholder="AngularJS etc" maxLength='50' required> 
+                        
+                    </div>
+                    
+                    <div class="group pull-left">
+                    
+                     <input class="btn default search-btn" type="submit" name="submit" value="Search framework">
+                        
+                    </div>
+                        
+                </fieldset>
+                
+            </form>
         
             <#if frameworks??>
             <table class="technology-table">

@@ -18,7 +18,7 @@ public class JDBCConnector {
 																					// port
 																					// number
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "ch@ngeme1";
 
 	private Connection connection;
 
