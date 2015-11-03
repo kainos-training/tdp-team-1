@@ -38,21 +38,22 @@ BEGIN
 END //
 DELIMITER ;
 
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Grails', 'Apache', 'Java God', 'Oracle');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Play', 'Apache 2.0', 'Simon', 'Play inc');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('SpringMVC', 'Apache 2.0', 'Chris', 'Spring inc');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Dropwizard', 'Apache 2.1', 'Peter', 'Yammer');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('ASP.NET', 'Apache 2.0', 'Merlin', 'Microsoft');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Angular JS', 'MIT', 'James', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('KnockoutJS', 'MIT', 'Zoe', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Backbone.js', 'MIT', 'Eddy', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Ember.js', 'MIT', 'C0rmac', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Express.js', 'MIT', 'Jordan', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Unified.js', 'BSD', 'Siona', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Zend Framework', 'New BSD', 'Steven', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Sintra', 'MIT', 'James', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Ruby On Rails', 'MIT', 'Andy', 'Alphabet');
-INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Drupal', 'GPLv2', 'Tanya', 'Alphabet');
+
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Grails', 'Apache', 'M McVeigh', 'Oracle');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Play', 'Apache 2.0', 'Simon Watson', 'Play inc');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('SpringMVC', 'Apache 2.0', 'Chris Kalista', 'Spring inc');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Dropwizard', 'Apache 2.1', 'Rory Hanratty', 'Yammer');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('ASP.NET', 'Apache 2.0', 'Dave Spence', 'Microsoft');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Angular JS', 'MIT', 'Chris Kalista', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('KnockoutJS', 'MIT', 'Zoe Bryant', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Backbone.js', 'MIT', 'Matt Jamiowszki', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Ember.js', 'MIT', 'Matt Jamiowszki', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Express.js', 'MIT', 'Peader Kelly', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Unified.js', 'BSD', 'Siona Murray', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Zend Framework', 'New BSD', 'Steven Alexander', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Sinatra', 'MIT', 'James Nelson', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Ruby On Rails', 'MIT', 'Zoe Bryant', 'Alphabet');
+INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Drupal', 'GPLv2', 'Tom Swann', 'Alphabet');
 
 INSERT INTO project(projectName) VALUES('Digital Dictation');
 INSERT INTO project(projectName) VALUES('Evolve Core');
