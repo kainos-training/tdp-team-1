@@ -108,6 +108,32 @@
 			<p>No developers have used this framework</p>
 			</#if>
 		</div>
+		
+		<div class="col-6 last-child">
+			<h2 class="heading-three-view">Reviews</h2>
+			<#if developers?has_content>
+			<table class="people-table">
+				<caption class="visiually-hidden">Developers</caption>
+				<summary class="visiually-hidden">A list of all developers
+					that have used this framework</summary>
+				<thead>
+					<tr>
+						<th scope="col" class="uppercase">Developers</th>
+					</tr>
+				</thead>
+				<tbody>
+					<#list reviews as review>
+					<tr>
+						<td>${review.name}</td>
+						<td>${review.review}</td>
+					</tr>
+					</#list>
+				</tbody>
+			</table>
+			<#else>
+			<p>No developers have used this framework</p>
+			</#if>
+		</div>
 	</div>
 	</main>
 

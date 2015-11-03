@@ -17,6 +17,7 @@ import javax.ws.rs.core.Response;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.database.JDBCConnector;
+import com.kainos.projectdrill.model.Review;
 import com.kainos.projectdrill.model.framework.Framework;
 import com.kainos.projectdrill.views.ErrorView;
 import com.kainos.projectdrill.views.Index;
@@ -54,7 +55,9 @@ public class ViewsResource {
 			
 			List<String> developers = database.selectDevelopersForFramework(id);
 			
-			return new selectOneFramework(framework, projects, developers);
+			List<Review> reviews = database.selectReviewsForFramework(id);
+			
+			return new selectOneFramework(framework, projects, developers, reviews);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return new ErrorView();
