@@ -26,7 +26,7 @@ public class JDBCConnector {
 		Class.forName(DRIVER);
 
 		connection = DriverManager
-				.getConnection(DB_ADDRESS, USERNAME, null);
+				.getConnection(DB_ADDRESS, USERNAME, PASSWORD);
 	}
 
 	public List<Framework> selectAllFrameworks() throws SQLException {
@@ -82,5 +82,22 @@ public class JDBCConnector {
 		PreparedStatement statement = connection.prepareStatement("call insertFramework('" + newName + "', '" + newLicense + "', '" + newExpert + "', '" + newVendor + "')");
 		
 		statement.execute();
+	}
+	
+	public List<Framework> searchBy(String searchType, String searchName) throws SQLException {
+		
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE " + searchType + " = '" + searchName + "';");
+		
+		ResultSet results = statement.executeQuery();
+		
+		ArrayList<Framework> frameworkList = new ArrayList<Framework>();
+		
+		while (results.next()) {
+			Framework newFramework = new Framework(results.getInt(1),
+					results.getString(2), results.getString(3),
+					results.getString(4), results.getString(5));
+			frameworkList.add(newFramework);
+		}
+		return frameworkList;
 	}
 }
