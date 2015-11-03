@@ -26,7 +26,7 @@ public class JDBCConnector {
 		Class.forName(DRIVER);
 
 		connection = DriverManager
-				.getConnection(DB_ADDRESS, USERNAME, PASSWORD);
+				.getConnection(DB_ADDRESS, USERNAME, null);
 	}
 
 	public List<Framework> selectAllFrameworks() throws SQLException {
