@@ -9,7 +9,7 @@ import com.kainos.projectdrill.model.framework.Framework;
 public class selectOneFramework extends View {
 
 	private List<String> developers;
-
+	private List<String> reviews;
 	private List<String> projects;
 	private Framework framework;
 	
@@ -27,7 +27,11 @@ public class selectOneFramework extends View {
 	public selectOneFramework(Framework framework, List<String> projects, List<String> developers) {
 		this(framework, projects);
 		this.developers = developers;
-		
+	}
+	
+	public selectOneFramework(Framework framework, List<String> projects, List<String> developers, List<String> reviews) {
+		this(framework, projects, developers);
+		this.reviews = reviews;
 	}
 
 	public List<String> getDevelopers() {
@@ -45,4 +49,9 @@ public class selectOneFramework extends View {
 	public List<String> getProjects() {
 		return projects;
 	}
+
+	public List<String> getReviews() {
+		return reviews;
+	}
+
 }
