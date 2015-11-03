@@ -50,6 +50,13 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE getDevelopers(framework int)
+BEGIN
+	SELECT name FROM developer JOIN developerFramework ON id = developerId WHERE frameworkId = framework;
+END //
+DELIMITER ;
+
 
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Grails', 'Apache', 'M McVeigh', 'Oracle');
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Play', 'Apache 2.0', 'Simon Watson', 'Play inc');
