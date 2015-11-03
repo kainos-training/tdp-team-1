@@ -98,6 +98,8 @@ public class JDBCConnector {
 
 		return reviews;
 	}
+	
+
 
 
 
@@ -123,6 +125,15 @@ public class JDBCConnector {
 
 	public void addNewFramework(String newName, String newLicense, String newExpert, String newVendor) throws SQLException {
 		PreparedStatement statement = connection.prepareStatement("call insertFramework('" + newName + "', '" + newLicense + "', '" + newExpert + "', '" + newVendor + "')");
+		
+		statement.execute();
+	}
+	
+	public void addReviewForFramework(String name, String review, int frameworkId) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("call insertReview(?, ?, ?)");
+		statement.setString(1, name);
+		statement.setString(2, review);
+		statement.setInt(3, frameworkId);
 		
 		statement.execute();
 	}
