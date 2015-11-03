@@ -35,5 +35,10 @@ public class ViewsResourceTest {
 		
 		verify(mockClient).selectAllFrameworks();
 	}
+	
+	@Test
+	public void testDefault() {
+		assert(true);
+	}
 }
  

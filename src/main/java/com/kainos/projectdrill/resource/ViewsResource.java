@@ -28,7 +28,7 @@ public class ViewsResource {
 	
 	@GET
 	@Timed
-	@Path("/")
+	@Path("/frameworksList")
 	@Produces(MediaType.TEXT_HTML)
 	public View getFrameworkList() throws SQLException{
 		List<Framework> allFrameworks = database.selectAllFrameworks();	
