@@ -46,10 +46,14 @@ public class ViewsResource {
 	@Path("/selectOneFramework/{id}")
 	@Produces(MediaType.TEXT_HTML)
 	public View selectOneFramework(@PathParam("id") int id) {
+		
 		Framework framework;
+		
 		try {
 			framework = database.selectOneFramework(id);
-			return new selectOneFramework(framework);
+			List<String> projects = database.selectProjectsForFramework(id);
+			
+			return new selectOneFramework(framework, projects);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return new ErrorView();
