@@ -74,7 +74,7 @@
                         <tr>
                             <td>
                                 <span class="technology-name">
-                                    ${framework.getFrameworkName()}
+                                   <a href="/selectOneFramework/${framework.getId()}">${framework.getFrameworkName()}</a>
                                 </span>
                             </td>
                             <td>

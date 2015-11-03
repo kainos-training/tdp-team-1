@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -14,6 +15,7 @@ import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.database.JDBCConnector;
 import com.kainos.projectdrill.model.framework.Framework;
 import com.kainos.projectdrill.views.Index;
+import com.kainos.projectdrill.views.selectOneFramework;
 
 @Path("/")
 public class ViewsResource {
@@ -33,5 +35,12 @@ public class ViewsResource {
 		List<Framework> allFrameworks = database.selectAllFrameworks();
 		return new Index(allFrameworks);
 	}
-	
+
+	@GET
+	@Timed
+	@Path("/selectOneFramework/{id}")
+	@Produces(MediaType.TEXT_HTML)
+	public View selectOneFramework(@PathParam("id") int id){
+		return new selectOneFramework(id);
+	}
 }

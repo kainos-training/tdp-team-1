@@ -16,9 +16,9 @@ public class JDBCConnector {
 	private static final String DB_ADDRESS = "jdbc:mysql://localhost:3306/ktechDB"; //TODO: Fix port number
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "ch@ngeme1";
+
 	private Connection connection;
-	
-	
+		
 	public JDBCConnector() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
 		
@@ -41,6 +41,7 @@ public class JDBCConnector {
 		
 	}
 	
+
 	public List<String> selectProjectsForFramework(int frameworkId) throws SQLException {
 		PreparedStatement statement = connection.prepareStatement("CALL getProjects(?)");
 		statement.setInt(1, frameworkId);
@@ -58,4 +59,17 @@ public class JDBCConnector {
 	
 	
 	
+
+
+	public Framework selectOneFramework(int id) throws SQLException{
+		
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = " + id);
+		
+		ResultSet results = statement.executeQuery();
+		
+		Framework newFramework = new Framework(results.getInt(1), results.getString(2), results.getString(3), results.getString(4), results.getString(5));
+		
+		return newFramework;
+	}
+
 }
