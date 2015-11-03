@@ -52,7 +52,9 @@ public class ViewsResource {
 			framework = database.selectOneFramework(id);
 			List<String> projects = database.selectProjectsForFramework(id);
 			
-			return new selectOneFramework(framework, projects);
+			List<String> developers = database.selectDevelopersForFramework(id);
+			
+			return new selectOneFramework(framework, projects, developers);
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return new ErrorView();
