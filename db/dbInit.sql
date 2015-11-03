@@ -95,17 +95,33 @@ INSERT INTO projectFramework(projectId, frameworkId) VALUES(5, 2);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(6, 2);
 
 
-INSERT INTO developer(name) VALUES("EDU");
-INSERT INTO developer(name) VALUES("ZOE");
-INSERT INTO developer(name) VALUES("ABBA");
-INSERT INTO developer(name) VALUES("CORMY");
-INSERT INTO developer(name) VALUES("Simon");
+INSERT INTO developer(name) VALUES("Eduardo Lima");
+INSERT INTO developer(name) VALUES("Zoe Bryant");
+INSERT INTO developer(name) VALUES("Ghulam Abbas");
+INSERT INTO developer(name) VALUES("Cormac Curran");
+INSERT INTO developer(name) VALUES("Simon Watson");
+INSERT INTO developer(name) VALUES("Andrew Wright");
+INSERT INTO developer(name) VALUES("Thomas Swan");
+INSERT INTO developer(name) VALUES("David Spence");
+INSERT INTO developer(name) VALUES("Alan Jennings");
+INSERT INTO developer(name) VALUES("Will Hamill");
+INSERT INTO developer(name) VALUES("Kyle Thompson");
+
 
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(1, 6);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(2, 5);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(3, 4);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(4, 3);
 INSERT INTO developerFramework(developerId, frameworkId) VALUES(5, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(6, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(8, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(9, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(10, 1);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(2, 6);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(9, 7);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(8, 5);
+INSERT INTO developerFramework(developerId, frameworkId) VALUES(7, 4);
 
 DROP USER 'ktech_user'@'localhost';
 CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
