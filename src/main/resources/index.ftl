@@ -73,28 +73,28 @@
                                             <div class="form-group">
 
                                                 <label for="framework-name">Framework name</label>
-                                                <input id="framework-name" type="text" name="nameField"> 
+                                                <input id="framework-name" type="text" name="nameField" maxLength="50" required> 
  
                                             </div>
                                             
                                             <div class="form-group">
 
                                                 <label for="framework-license">License</label>
-                                                <input id="framework-license" type="text" name="licenseField"> 
+                                                <input id="framework-license" type="text" name="licenseField" maxLength="50" required> 
 
                                             </div>
                                             
                                             <div class="form-group">
 
                                                 <label for="framework-expert">Expert</label>
-                                                <input id="framework-expert" type="text" name="expertField"> 
+                                                <input id="framework-expert" type="text" name="expertField" maxLength="25" required> 
 
                                             </div>
                                             
                                             <div class="form-group">
 
                                                 <label for="framework-vendor">Vendor</label>
-                                                <input id="framework-vendor" type="text" name="vendorField">
+                                                <input id="framework-vendor" type="text" name="vendorField" maxLength="25" required>
 
                                             </div>
 
