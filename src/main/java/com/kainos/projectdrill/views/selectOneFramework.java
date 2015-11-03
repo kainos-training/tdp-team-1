@@ -4,8 +4,19 @@ import io.dropwizard.views.View;
 
 public class selectOneFramework extends View {
 	
-	public selectOneFramework() {
+	private int projectId;
+	
+	public selectOneFramework(int projectId){
 		super("/selectOneFramework.ftl");
+		this.projectId = projectId;
+	}
+	
+	public int getProjectID() {
+		return projectId;
+	}
+	
+	public void setProjectId(int projId){
+		this.projectId = projId;
 	}
 
 }

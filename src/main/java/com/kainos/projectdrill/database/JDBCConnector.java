@@ -53,6 +53,3 @@ public class JDBCConnector {
 		return newFramework;
 	}
 }
-=======
-}
->>>>>>> master
