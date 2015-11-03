@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.kainos.projectdrill.model.Review;
 import com.kainos.projectdrill.model.framework.Framework;
 
 public class JDBCConnector {
@@ -78,6 +79,25 @@ public class JDBCConnector {
 		return developerNames;
 	}
 	
+
+	public List<Review> selectReviewsForFramework(int frameworkId) throws SQLException {
+		PreparedStatement statement = connection
+				.prepareStatement("CALL getReviews(?)");
+		statement.setInt(1, frameworkId);
+
+		ResultSet results = statement.executeQuery();
+
+		List<Review> reviews = new ArrayList<Review>();
+
+		while (results.next()) {
+			
+			
+			Review newReview = new Review(results.getString(1), results.getString(4), results.getInt(2), results.getInt(3));
+			reviews.add(newReview);
+		}
+
+		return reviews;
+	}
 
 
 
