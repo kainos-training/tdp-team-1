@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.views.Index;
+import com.kainos.projectdrill.views.selectOneFramework;
 
 @Path("/")
 public class ViewsResource {
@@ -23,4 +24,12 @@ public class ViewsResource {
 		return new Index();
 	}
 
+	@GET
+	@Timed
+	@Path("/selectOneFramework")
+	@Produces(MediaType.TEXT_HTML)
+	public View selectOneFramework(){
+		return new selectOneFramework();
+	}
+	
 }
