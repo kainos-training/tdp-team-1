@@ -76,25 +76,25 @@
                                                 <input id="framework-name" type="text" name="nameField"> 
  
                                             </div>
-
-                                            <div class="form-group">
-
-                                                <label for="framework-vendor">Vendor</label>
-                                                <input id="framework-vendor" type="text" name="vendorField">
-
-                                            </div>
-
+                                            
                                             <div class="form-group">
 
                                                 <label for="framework-license">License</label>
                                                 <input id="framework-license" type="text" name="licenseField"> 
 
                                             </div>
-
+                                            
                                             <div class="form-group">
 
                                                 <label for="framework-expert">Expert</label>
                                                 <input id="framework-expert" type="text" name="expertField"> 
+
+                                            </div>
+                                            
+                                            <div class="form-group">
+
+                                                <label for="framework-vendor">Vendor</label>
+                                                <input id="framework-vendor" type="text" name="vendorField">
 
                                             </div>
 
@@ -134,9 +134,9 @@
 
                     <tr>
                         <th scope="col" class="uppercase">Name</th>
-                        <th scope="col" class="uppercase">Vendor</th>
-                        <th scope="col" class="uppercase">Expert</th>
                         <th scope="col" class="uppercase">License</th>
+                        <th scope="col" class="uppercase">Expert</th>
+                        <th scope="col" class="uppercase">Vendor</th>
                     </tr>
 
                 </thead>
