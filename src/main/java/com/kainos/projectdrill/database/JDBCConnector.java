@@ -13,43 +13,68 @@ import com.kainos.projectdrill.model.framework.Framework;
 public class JDBCConnector {
 
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
-	private static final String DB_ADDRESS = "jdbc:mysql://localhost:3306/ktechDB"; //TODO: Fix port number
+	private static final String DB_ADDRESS = "jdbc:mysql://localhost:3306/ktechDB"; // TODO:
+																					// Fix
+																					// port
+																					// number
 	private static final String USERNAME = "root";
 	private static final String PASSWORD = "ch@ngeme1";
 
 	private Connection connection;
-		
+
 	public JDBCConnector() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
-		
-		connection = DriverManager.getConnection(DB_ADDRESS, USERNAME, PASSWORD);	
+
+		connection = DriverManager
+				.getConnection(DB_ADDRESS, USERNAME, PASSWORD);
 	}
-	
+
 	public List<Framework> selectAllFrameworks() throws SQLException {
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework");
-		
+		PreparedStatement statement = connection
+				.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework");
+
 		ResultSet results = statement.executeQuery();
-		
+
 		List<Framework> frameworkList = new ArrayList<Framework>();
-		
+
 		while (results.next()) {
-			Framework newFramework = new Framework(results.getInt(1), results.getString(2), results.getString(3), results.getString(4), results.getString(5));
+			Framework newFramework = new Framework(results.getInt(1),
+					results.getString(2), results.getString(3),
+					results.getString(4), results.getString(5));
 			frameworkList.add(newFramework);
 		}
-		
-		return frameworkList;
-		
-	}
-	
 
-	public Framework selectOneFramework(int id) throws SQLException{
+		return frameworkList;
+
+	}
+
+	public Framework selectOneFramework(int id) throws SQLException {
+		System.out.println("ID" + id);
 		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = " + id);
-		
+		PreparedStatement statement = connection
+				.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = ?");
+		statement.setInt(1, id);
+
 		ResultSet results = statement.executeQuery();
 		
-		Framework newFramework = new Framework(results.getInt(1), results.getString(2), results.getString(3), results.getString(4), results.getString(5));
+		System.out.println("Statement executed!!!");
 		
-		return newFramework;
+		Framework framework;
+		
+		while(results.next()) {
+			framework = new Framework(results.getInt(1),
+					results.getString(2), results.getString(3),
+					results.getString(4), results.getString(5));
+			
+			System.out.println(framework);
+			
+			return framework;
+					
+			
+		}
+		
+		
+		
+		return null;
 	}
 }

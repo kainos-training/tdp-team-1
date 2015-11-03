@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>KTech</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css"/> 
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles.css"/> 
 </head>
 <body>
     <header>  
@@ -30,26 +30,23 @@
     </header>  
     <main>
         <div class="container">
-            
-            
-            
-            
+          
             <div class="row clearfix">
                 <p><a href="#" class="breadcrumb-item"><span>&#10094</span>Back</a></p>
-                <h1 class="heading-two pull-left">AngularJS</h1>
+                <h1 class="heading-two pull-left">${framework.getFrameworkName()}</h1>
                 <dl class="pull-left">
                     <div class="dl-group pull-left">
                         <dt class="uppercase pull-left">Vendor</dt>
-                        <dd class="pull-left">Vendor value</dd>
+                        <dd class="pull-left">${framework.getVendor()}</dd>
                     </div>
                     <div class="dl-group pull-left">
                         <dt class="uppercase pull-left">Licenses</dt>
-                        <dd class="pull-left">License value</dd>
+                        <dd class="pull-left">${framework.getLicense()}</dd>
                     </div>
                     
                      <div class="dl-group pull-left">
                         <dt class="uppercase pull-left">Expert</dt>
-                        <dd class="pull-left">Expert name</dd>
+                        <dd class="pull-left">${framework.getExpert()}</dd>
                     </div>
                     
                 </dl> 

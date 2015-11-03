@@ -2,21 +2,29 @@ package com.kainos.projectdrill.views;
 
 import io.dropwizard.views.View;
 
+import com.kainos.projectdrill.model.framework.Framework;
+
 public class selectOneFramework extends View {
 	
-	private int projectId;
+	private Framework framework;
 	
-	public selectOneFramework(int projectId){
+	
+	public selectOneFramework(Framework framework){
 		super("/selectOneFramework.ftl");
-		this.projectId = projectId;
+		System.out.println(framework);
+		this.framework = framework;
+	}
+
+
+	public Framework getFramework() {
+		return framework;
+	}
+
+
+	public void setFramework(Framework framework) {
+		this.framework = framework;
 	}
 	
-	public int getProjectID() {
-		return projectId;
-	}
 	
-	public void setProjectId(int projId){
-		this.projectId = projId;
-	}
 
 }

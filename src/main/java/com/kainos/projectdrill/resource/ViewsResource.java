@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.database.JDBCConnector;
 import com.kainos.projectdrill.model.framework.Framework;
+import com.kainos.projectdrill.views.ErrorView;
 import com.kainos.projectdrill.views.Index;
 import com.kainos.projectdrill.views.selectOneFramework;
 
@@ -40,7 +41,16 @@ public class ViewsResource {
 	@Timed
 	@Path("/selectOneFramework/{id}")
 	@Produces(MediaType.TEXT_HTML)
-	public View selectOneFramework(@PathParam("id") int id){
-		return new selectOneFramework(id);
+	public View selectOneFramework(@PathParam("id") int id) {
+		Framework framework;
+		try {
+			framework = database.selectOneFramework(id);
+			return new selectOneFramework(framework);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return new ErrorView();
+		}
+		
+		
 	}
 }
