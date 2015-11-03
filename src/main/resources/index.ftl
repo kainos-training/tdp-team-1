@@ -42,7 +42,78 @@
 
             <div class="row clearfix">
 
-                    <h1 class="heading-two pull-left">Technologies</h1>
+                    <h1 class="heading-two pull-left">Frameworks</h1>
+                    
+                    <div class="modal">
+
+                        <input class="visiually-hidden" id="modal-trigger" type="checkbox">
+                        <label class="btn primary pull-right" for="modal-trigger">Add framework</label>
+
+                        <div class="modal-overlay">
+
+                            <div class="modal-wrapper">
+
+                                <div class="modal-header">
+
+                                    <label for="modal-trigger" class="close-modal">&#10006;</label>
+                                    <h2 class="heading-three">Add a new technology</h2>
+
+                                </div>
+
+                                <form method="post" action="#">
+
+                                    <fieldset>
+
+                                        <div class="form-body">
+
+                                            <legend class="visiually-hidden">Add a new technology</legend>
+
+                                            <div class="form-group">
+
+                                                <label for="technology-name">Technology name</label>
+                                                <input id="technology-name" type="text" name="textfield"> 
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label for="technology-vendor">Vendor</label>
+                                                <input id="technology-vendor" type="text" name="textfield">
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label for="technology-license">License</label>
+                                                <input id="technology-license" type="text" name="textfield"> 
+
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <label for="technology-expert">Expert</label>
+                                                <input id="technology-expert" type="text" name="textfield"> 
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-footer clearfix">
+                                            <input class="btn primary pull-right" type="submit" name="submit" value="Submit Technology">
+
+                                            <label class="close pull-right" for="modal-trigger">Cancel</label>
+
+                                        </div>
+
+                                    </fieldset>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
             </div>
             

@@ -33,4 +33,11 @@ public class ViewsResource {
 		return new Index(allFrameworks);
 	}
 	
+	@POST
+	@Path("/")
+	public void insertFramework() {
+		
+	}
+	
+	
 }
