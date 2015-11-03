@@ -32,7 +32,7 @@
         <div class="container">
           
             <div class="row clearfix">
-                <p><a href="#" class="breadcrumb-item"><span>&#10094</span>Back</a></p>
+                <p><a href="/frameworksList" class="breadcrumb-item"><span>&#10094</span>Back</a></p>
                 <h1 class="heading-two pull-left">${framework.getFrameworkName()}</h1>
                 <dl class="pull-left">
                     <div class="dl-group pull-left">
