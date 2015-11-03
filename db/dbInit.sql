@@ -35,9 +35,9 @@ INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Sintra', '
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Ruby On Rails', 'MIT', 'Andy', 'Alphabet');
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Drupql', 'GPLv2', 'Tanya', 'Alphabet');
 
+
+DROP USER 'ktech_user'@'localhost';
+CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
 GRANT SELECT on ktechDB.framework TO 'ktech_user'@'localhost';
 GRANT INSERT on ktechDB.framework TO 'ktech_user'@'localhost';
-DROP User 'ktech_user'@'localhost';
-CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
-
 
