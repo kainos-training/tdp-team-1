@@ -67,6 +67,13 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE getReviews(framework int)
+BEGIN
+	SELECT name, id, frameworkId, review FROM review WHERE frameworkId = framework;
+END //
+DELIMITER ;
+
 
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Grails', 'Apache', 'M McVeigh', 'Oracle');
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Play', 'Apache 2.0', 'Simon Watson', 'Play inc');
