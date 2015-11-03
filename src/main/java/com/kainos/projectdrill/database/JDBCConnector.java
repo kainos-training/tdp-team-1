@@ -41,4 +41,10 @@ public class JDBCConnector {
 		
 	}
 	
+	public void addNewFramework(String newName, String newLicense, String newExpert, String newVendor) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("call insertFramework('" + newName + "', '" + newLicense + "', '" + newExpert + "', '" + newVendor + "')");
+		
+		statement.execute();
+	}
+	
 }
