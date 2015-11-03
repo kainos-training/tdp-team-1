@@ -83,4 +83,14 @@ public class JDBCConnector {
 		
 		statement.execute();
 	}
+	
+	
+	public void updateExpert(int frameworkId, String expert) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("UPDATE framework SET expert = ? WHERE framework.id = ?");
+		
+		ps.setInt(1, frameworkId);
+		ps.setString(2, expert);
+		
+		ps.execute();
+	}
 }
