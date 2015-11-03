@@ -62,7 +62,7 @@
 
 
 		<h2 class="heading-three-view">Projects</h2>
-		<#if projects??>
+		<#if projects?has_content>
 		<table class="technology-table">
 			<caption class="visiually-hidden">Projects</caption>
 			<summary class="visiually-hidden">A list of all projects
