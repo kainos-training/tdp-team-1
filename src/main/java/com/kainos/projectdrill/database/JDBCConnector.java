@@ -63,8 +63,7 @@ public class JDBCConnector {
 		return projectNames;
 	}
 	
-	
-	
+
 
 
 	public Framework selectOneFramework(int id) throws SQLException{
@@ -94,6 +93,12 @@ public class JDBCConnector {
 		
 		
 		return null;
+	}
+
+	public void addNewFramework(String newName, String newLicense, String newExpert, String newVendor) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("call insertFramework('" + newName + "', '" + newLicense + "', '" + newExpert + "', '" + newVendor + "')");
+		
+		statement.execute();
 	}
 
 }
