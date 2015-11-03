@@ -1,15 +1,15 @@
 package com.kainos.projectdrill;
 
-import com.google.common.collect.ImmutableMap;
-import com.kainos.projectdrill.configuration.ProjectDrillConfiguration;
-import com.kainos.projectdrill.database.JDBCConnector;
-import com.kainos.projectdrill.resource.ViewsResource;
-
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
+
+import com.google.common.collect.ImmutableMap;
+import com.kainos.projectdrill.configuration.ProjectDrillConfiguration;
+import com.kainos.projectdrill.database.JDBCConnector;
+import com.kainos.projectdrill.resource.ViewsResource;
 
 public class ProjectDrillApplication extends Application<ProjectDrillConfiguration> {
 	

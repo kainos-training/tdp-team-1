@@ -1,9 +1,10 @@
 package com.kainos.projectdrill.configuration;
 
-import java.util.Map;
-import javax.validation.constraints.NotNull;
-
 import io.dropwizard.Configuration;
+
+import java.util.Map;
+
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.ImmutableMap;
