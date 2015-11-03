@@ -7,7 +7,9 @@ import io.dropwizard.views.View;
 import com.kainos.projectdrill.model.framework.Framework;
 
 public class selectOneFramework extends View {
-	
+
+	private List<String> developers;
+
 	private List<String> projects;
 	private Framework framework;
 	
@@ -20,6 +22,16 @@ public class selectOneFramework extends View {
 		super("/selectOneFramework.ftl");
 		this.framework = framework;
 		this.projects = projects;
+	}
+
+	public selectOneFramework(Framework framework, List<String> projects, List<String> developers) {
+		this(framework, projects);
+		this.developers = developers;
+		
+	}
+
+	public List<String> getDevelopers() {
+		return developers;
 	}
 
 	public Framework getFramework() {
