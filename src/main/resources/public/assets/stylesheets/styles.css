@@ -127,19 +127,20 @@ nav {
   margin-left: -.6em; }
 
 .technolgies {
-  background: url("../img/nav-sprites.png") 0 0; }
+  background: url("http://i.imgur.com/ASLaE89.png") 0 0; }
   .technolgies:hover {
-    background: url(../img/nav-sprites.png) 0px -80px; }
+    background: url("http://i.imgur.com/ASLaE89.png") 0px -80px; }
 
 .search {
-  background: url("../img/nav-sprites.png") 0 160px; }
+  background: url("http://i.imgur.com/ASLaE89.png") 0 160px; }
   .search:hover {
-    background: url("../img/nav-sprites.png") 0 82px; }
+    background: url("http://i.imgur.com/ASLaE89.png") 0 82px; }
 
 /*Container -----------------------------------------
 ---------------------------------------------------*/
 .container {
   width: 91%;
+  max-width: 91%;
   margin: 0 auto; }
 
 .row {
@@ -161,11 +162,20 @@ nav {
 
 .heading-two {
   color: #2B2D33;
-  font-size: 2.8em; }
+  font-size: 3.0em; }
+
+.heading-three, .heading-three-view {
+  font-size: 2.4em;
+  font-weight: 300; }
 
 .heading-three {
-  color: #ffffff;
-  font-size: 2.4em;
+  color: #ffffff; }
+
+.heading-three-view {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 2.1em;
+  font-size: #2B2D33;
+  margin-bottom: 1.3em;
   font-weight: 300; }
 
 /*Table ---------------------------------------------
@@ -188,16 +198,16 @@ nav {
     font-size: 1.3em;
     padding: 4em 1.5em 4em 1.5em; }
   .technology-table a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #3E88C0;
-    transition: color 0.5s; }
+    transition: color 0.5s;
+    cursor: pointer; }
     .technology-table a:hover {
       color: #326d99;
       text-decoration: underline; }
 
 .technology-name {
   display: block;
-  color: #3E88C0;
   font-size: 1.6em;
   font-weight: 900;
   margin-bottom: .5em; }
@@ -305,15 +315,14 @@ input:checked ~ .modal-overlay {
 /*Validation messaging ------------------------------
 ---------------------------------------------------*/
 .validation-message {
-  position: absolute;
+  position: relative;
   background-color: inherit;
-  bottom: 1%;
-  right: 1%;
   font-size: 1.6em;
   border: 2px solid rgba(0, 0, 0, 0.1);
   padding: 1.5em 1.5em 1.3em 1.5em;
   border-radius: .25em;
-  max-width: 28em; }
+  max-width: 35em;
+  margin-bottom: 4em; }
 
 .error {
   background-color: #f2dede;
@@ -327,7 +336,40 @@ input:checked ~ .modal-overlay {
   margin-bottom: 1em;
   width: 1em;
   cursor: pointer;
-  display: block; }
+  position: absolute;
+  top: 5%;
+  right: 1%; }
+
+/*Data lists ---------------------------------------
+---------------------------------------------------*/
+dl {
+  display: block;
+  width: 100%;
+  margin-top: 4em;
+  margin-bottom: 4em; }
+
+.dl-group {
+  width: 25%; }
+
+dt, dd {
+  font-size: 1.6em; }
+
+dt {
+  color: rgba(0, 0, 0, 0.4);
+  margin-right: .3em; }
+
+dt::after {
+  content: " - "; }
+
+dd {
+  color: rgba(0, 0, 0, 0.6); }
+
+/*Breadcrumbs --------------------------------------
+---------------------------------------------------*/
+.breadcrumb-item {
+  color: #4A90E2;
+  font-size: 1.4em;
+  border-bottom: 1px solid bottom; }
 
 /*Media queries -------------------------------------
 ---------------------------------------------------*/

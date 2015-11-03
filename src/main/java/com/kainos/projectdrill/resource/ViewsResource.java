@@ -37,12 +37,16 @@ public class ViewsResource {
 	
 	@POST
 	@Path("/insertFramework")
-	public void insertFramework(@FormParam("nameField") String newName, 
+	public View insertFramework(@FormParam("nameField") String newName, 
 								@FormParam("vendorField") String newVendor, 
 								@FormParam("licenseField") String newLicense,
 								@FormParam("expertField") String newExpert) throws SQLException {
 		
 		database.addNewFramework(newName, newLicense, newExpert, newVendor);
+		
+		List<Framework> allFrameworks = database.selectAllFrameworks();
+		
+		return new Index(allFrameworks);
 		
 	}
 	

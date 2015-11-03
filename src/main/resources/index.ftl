@@ -5,6 +5,8 @@
 <title>KTech</title>
     <meta charset="UTF-8">
     <link href="/assets/stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
 
 <body>
@@ -121,6 +123,11 @@
         </div>
            
             <div class="container">
+            
+             <div class="validation-message error">
+              <p>Framework not added correctly!</p>
+              <a class="close-validation">&#10006;</a>
+ 				</div>
         
             <#if frameworks??>
             <table class="technology-table">
@@ -173,6 +180,13 @@
     
     
     </main>
+
+<script type="text/javascript">
+//Closes validaiton message
+$(".close-validation").on("click", function(){
+    $(this).parent().fadeOut();
+});
+</script>
 
 </body>
 
