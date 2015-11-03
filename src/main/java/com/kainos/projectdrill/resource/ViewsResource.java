@@ -40,7 +40,9 @@ public class ViewsResource {
 	@Timed
 	@Path("/selectOneFramework/{id}")
 	@Produces(MediaType.TEXT_HTML)
-	public View selectOneFramework(@PathParam("id") int id){
-		return new selectOneFramework(id);
+	public View selectOneFramework(@PathParam("id") int id) throws SQLException{
+		List<String> projects = database.selectProjectsForFramework(id);
+		
+		return new selectOneFramework(id, projects);
 	}
 }
