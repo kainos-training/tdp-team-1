@@ -74,6 +74,13 @@ BEGIN
 END //
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE insertReview(name varchar(50) , review TEXT, framework int)
+BEGIN
+	INSERT INTO review(name, review, frameworkId) VALUES(name, review, framework);
+END //
+DELIMITER ;
+
 
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Grails', 'Apache', 'M McVeigh', 'Oracle');
 INSERT INTO framework(frameworkName, license, expert, vendor) VALUES('Play', 'Apache 2.0', 'Simon Watson', 'Play inc');
