@@ -4,29 +4,38 @@ import java.util.List;
 
 import io.dropwizard.views.View;
 
+import com.kainos.projectdrill.model.framework.Framework;
+
 public class selectOneFramework extends View {
 	
-	private int projectId;
+
 	private List<String> projects;
+	private Framework framework;
 	
-	public selectOneFramework(int projectId){
+
+	
+	public selectOneFramework(Framework framework){
 		super("/selectOneFramework.ftl");
-		this.projectId = projectId;
+		System.out.println(framework);
+		this.framework = framework;
 	}
 	
-	public selectOneFramework(int projectId, List<String> projects){
+	public selectOneFramework(Framework framework, List<String> projects){
 		super("/selectOneFramework.ftl");
-		this.projectId = projectId;
+		this.framework = framework;
 		this.projects = projects;
 	}
-	
-	public int getProjectID() {
-		return projectId;
+
+	public Framework getFramework() {
+		return framework;
+	}
+
+
+	public void setFramework(Framework framework) {
+		this.framework = framework;
 	}
 	
-	public void setProjectId(int projId){
-		this.projectId = projId;
-	}
+	
 
 	public List<String> getProjects() {
 		return projects;
