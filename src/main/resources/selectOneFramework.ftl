@@ -12,11 +12,7 @@
 
 
 			<div class="logo pull-left">
-
-				<h1 class="heading-one">
-					K<span>Tech</span>
-				</h1>
-
+				<h1 class="heading-one">KTech<span>Matrix</span></h1>
 			</div>
 
 			<nav class="pull-left">
@@ -40,7 +36,7 @@
 
 		<div class="row clearfix">
 			<p>
-				<a href="#" class="breadcrumb-item"><span>&#10094</span>Back</a>
+				<a href="/frameworksList" class="breadcrumb-item"><span>&#10094</span>Back</a>
 			</p>
 			<h1 class="heading-two pull-left">${framework.getFrameworkName()}</h1>
 			<dl class="pull-left">

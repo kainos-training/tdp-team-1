@@ -17,7 +17,7 @@
         
             <div class="logo pull-left">
 
-                <h1 class="heading-one">K<span>Tech</span></h1>
+                <h1 class="heading-one">KTech<span>Matrix</span></h1>
 
             </div>
 
