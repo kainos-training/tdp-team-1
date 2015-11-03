@@ -105,7 +105,8 @@ header {
   max-width: 30%;
   background-color: #2B2D33;
   height: 100%;
-  padding: 2.55em 15em 2.55em 5em; }
+  padding: 2.55em 15em 2.7em 5em;
+  box-sizing: border-box; }
 
 nav {
   width: 70%; }
@@ -180,29 +181,29 @@ nav {
 
 /*Table ---------------------------------------------
 ---------------------------------------------------*/
-.technology-table {
+.technology-table, .projects-table, .people-table {
   width: 100%; }
-  .technology-table thead {
+  .technology-table thead, .projects-table thead, .people-table thead {
     background-color: #fbfbfc;
     border: 1px solid #E4E4E6; }
-    .technology-table thead th {
+    .technology-table thead th, .projects-table thead th, .people-table thead th {
       border-right: 1px solid #E4E4E6;
       text-align: left;
       color: rgba(0, 0, 0, 0.45);
       font-size: 1.4em;
       padding: 1.9em 0 1.9em 1.5em; }
-  .technology-table tbody tr {
+  .technology-table tbody tr, .projects-table tbody tr, .people-table tbody tr {
     border-bottom: 1px solid #E4E4E6; }
-  .technology-table tbody td {
+  .technology-table tbody td, .projects-table tbody td, .people-table tbody td {
     color: rgba(0, 0, 0, 0.45);
     font-size: 1.3em;
     padding: 4em 1.5em 4em 1.5em; }
-  .technology-table a {
+  .technology-table a, .projects-table a, .people-table a {
     text-decoration: underline;
     color: #3E88C0;
     transition: color 0.5s;
     cursor: pointer; }
-    .technology-table a:hover {
+    .technology-table a:hover, .projects-table a:hover, .people-table a:hover {
       color: #326d99;
       text-decoration: underline; }
 
@@ -211,6 +212,9 @@ nav {
   font-size: 1.6em;
   font-weight: 900;
   margin-bottom: .5em; }
+
+.projects-table {
+  margin-bottom: 10em; }
 
 /*Modal ---------------------------------------------
 ---------------------------------------------------*/
@@ -312,6 +316,36 @@ input:checked ~ .modal-overlay {
   padding: 3em 2em 3em 0;
   vertical-align: center; }
 
+.searchFramework-form {
+  margin-bottom: 7em; }
+  .searchFramework-form label {
+    font-size: 1.6em;
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    margin-bottom: .9em; }
+
+.search-input, select {
+  margin-top: 1em;
+  padding: 1em;
+  display: block;
+  font-size: 1.3em; }
+
+select {
+  line-height: 4em; }
+
+.search-input {
+  width: 100%; }
+
+.search-btn {
+  display: block;
+  margin-top: 3.7em;
+  margin-left: 4em; }
+
+.group {
+  width: 30%; }
+  .group .btn {
+    padding: .9em 1.3em; }
+
 /*Validation messaging ------------------------------
 ---------------------------------------------------*/
 .validation-message {
@@ -322,7 +356,16 @@ input:checked ~ .modal-overlay {
   padding: 1.5em 1.5em 1.3em 1.5em;
   border-radius: .25em;
   max-width: 35em;
-  margin-bottom: 4em; }
+  margin-bottom: 4em;
+  -webkit-animation: fadein 1s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 1s;
+  /* Internet Explorer */
+  -o-animation: fadein 1s;
+  /* Opera < 12.1 */
+  animation: fadein 1s; }
 
 .error {
   background-color: #f2dede;
@@ -331,6 +374,12 @@ input:checked ~ .modal-overlay {
 .success {
   background-color: #dff0d8;
   color: #3c763d; }
+
+.default {
+  background-color: #e7e7e7;
+  color: black; }
+  .default:hover {
+    background-color: #cecece; }
 
 .close-validation {
   margin-bottom: 1em;
@@ -371,6 +420,37 @@ dd {
   font-size: 1.4em;
   border-bottom: 1px solid bottom; }
 
+/*Animations ----------------------------------------
+---------------------------------------------------*/
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
 /*Media queries -------------------------------------
 ---------------------------------------------------*/
 @media screen and (max-width: 960px) {
@@ -385,7 +465,7 @@ dd {
 
   .modal-wrapper {
     max-width: 500px; } }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 840px) {
   body {
     font-size: 45%; }
 

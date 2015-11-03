@@ -18,7 +18,7 @@ public class JDBCConnector {
 																					// port
 																					// number
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "ch@ngeme1";
+	private static final String PASSWORD = "";
 
 	private Connection connection;
 
@@ -48,16 +48,28 @@ public class JDBCConnector {
 
 	}
 
-	public Framework selectOneFramework(int id) throws SQLException {
-		System.out.println("ID" + id);
+	public List<String> selectProjectsForFramework(int frameworkId) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("CALL getProjects(?)");
+		statement.setInt(1, frameworkId);
+		
+		ResultSet results = statement.executeQuery();
+		
+		List<String> projectNames = new ArrayList<>();
+		
+		while(results.next()) {
+			projectNames.add(results.getString(1));
+		}
+		
+		return projectNames;
+	}
+
+	public Framework selectOneFramework(int id) throws SQLException{
 		
 		PreparedStatement statement = connection
 				.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = ?");
 		statement.setInt(1, id);
 
 		ResultSet results = statement.executeQuery();
-		
-		System.out.println("Statement executed!!!");
 		
 		Framework framework;
 		
@@ -66,15 +78,8 @@ public class JDBCConnector {
 					results.getString(2), results.getString(3),
 					results.getString(4), results.getString(5));
 			
-			System.out.println(framework);
-			
 			return framework;
-					
-			
-		}
-		
-		
-		
+		}		
 		return null;
 	}
 
@@ -100,4 +105,5 @@ public class JDBCConnector {
 		}
 		return frameworkList;
 	}
+
 }
