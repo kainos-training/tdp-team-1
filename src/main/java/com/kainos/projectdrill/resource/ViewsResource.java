@@ -28,7 +28,7 @@ public class ViewsResource {
 	@Timed
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
-	public View sayHello() throws SQLException{
+	public View getFrameworkList() throws SQLException{
 		List<Framework> allFrameworks = database.selectAllFrameworks();	
 		return new Index(allFrameworks);
 	}
