@@ -4,6 +4,7 @@ import io.dropwizard.views.View;
 
 import java.net.URI;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.FormParam;
@@ -72,6 +73,17 @@ public class ViewsResource {
 		
 		database.addNewFramework(newName, newLicense, newExpert, newVendor);
 		return Response.seeOther(URI.create("/frameworksList")).build();
+	}
+	
+	@POST
+	@Path("/searchFrameworks")
+	public View searchFrameworks(@FormParam("searchType") String newSearchType,
+								@FormParam("searchName") String newSearchName) throws SQLException {
+		List<Framework> frameworkList = database.searchBy(newSearchType, newSearchName);
+		
+		return new Index(frameworkList);
+		
+		
 	}
 
 }

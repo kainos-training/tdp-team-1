@@ -69,5 +69,15 @@ public class ViewsResourceTest {
 		verify(mockClient).addNewFramework("Name", "License", "Vendor", "Expert");
 
 	}
+	
+	@Test
+	public void testSearchBy() throws ClassNotFoundException, SQLException {
+		resource = new ViewsResource(mockClient);
+		View actualView = resource.searchFrameworks("frameworkName", "rails");
+		assertTrue(actualView instanceof Index);
+		
+		verify(mockClient).searchBy("frameworkName", "rails");
+		
+	}
 }
  
