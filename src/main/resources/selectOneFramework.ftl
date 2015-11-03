@@ -2,7 +2,8 @@
 <html>
 <head>
 <title>KTech</title>
-<link rel="stylesheet" type="text/css" href="/assets/stylesheets/styles.css" />
+<link rel="stylesheet" type="text/css"
+	href="/assets/stylesheets/styles.css" />
 </head>
 <body>
 	<header>
@@ -82,6 +83,29 @@
 		</table>
 		<#else>
 		<p>No projects for framework</p>
+		</#if>
+
+
+		<h2 class="heading-three-view">Developers</h2>
+		<#if developers?has_content>
+		<table class="technology-table">
+			<caption class="visiually-hidden">Developers</caption>
+			<summary class="visiually-hidden">A list of all developers that have used this framework</summary>
+			<thead>
+				<tr>
+					<th scope="col" class="uppercase">Developers</th>
+				</tr>
+			</thead>
+			<tbody>
+				<#list developers as developer>
+				<tr>
+					<td>${developer}</td>
+				</tr>
+				</#list>
+			</tbody>
+		</table>
+		<#else>
+		<p>No developers have used this framework</p>
 		</#if>
 	</div>
 	</main>
