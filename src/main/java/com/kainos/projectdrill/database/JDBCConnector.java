@@ -86,7 +86,7 @@ public class JDBCConnector {
 	
 	public List<Framework> searchBy(String searchType, String searchName) throws SQLException {
 		
-		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE " + searchType + " = '" + searchName + "';");
+		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE " + searchType + " LIKE '%" + searchName + "%';");
 		
 		ResultSet results = statement.executeQuery();
 		
