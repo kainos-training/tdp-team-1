@@ -8,7 +8,7 @@ CREATE TABLE framework (
 	id int primary key auto_increment,
 	frameworkName varchar(50),
 	license varchar(50),
-	expert varchar(25) NOT NULL,	
+	expert varchar(25) NOT NULL,
 	vendor varchar(25)
 );
 
@@ -32,11 +32,9 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE PROCEDURE getProjects(frameworkId int)
+CREATE PROCEDURE getProjects(framework int)
 BEGIN
-	SELECT projectName
-	FROM framework as fw, projectFramework as pf, project as pr
-	WHERE frameworkId = fw.id AND fw.id = pf.frameworkId;
+	SELECT projectName FROM project JOIN projectFramework ON id = projectId WHERE frameworkId = framework;
 END //
 DELIMITER ;
 
@@ -73,6 +71,8 @@ INSERT INTO projectFramework(projectId, frameworkId) VALUES(3, 3);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(3, 1);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(4, 4);
 INSERT INTO projectFramework(projectId, frameworkId) VALUES(4, 2);
+INSERT INTO projectFramework(projectId, frameworkId) VALUES(5, 2);
+INSERT INTO projectFramework(projectId, frameworkId) VALUES(6, 2);
 
 DROP USER 'ktech_user'@'localhost';
 CREATE USER 'ktech_user'@'localhost' IDENTIFIED BY '1Password2';
