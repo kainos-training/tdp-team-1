@@ -42,6 +42,25 @@ public class JDBCConnector {
 	}
 	
 
+	public List<String> selectProjectsForFramework(int frameworkId) throws SQLException {
+		PreparedStatement statement = connection.prepareStatement("CALL getProjects(?)");
+		statement.setInt(1, frameworkId);
+		
+		ResultSet results = statement.executeQuery();
+		
+		List<String> projectNames = new ArrayList<>();
+		
+		while(results.next()) {
+			projectNames.add(results.getString(1));
+		}
+		
+		return projectNames;
+	}
+	
+	
+	
+
+
 	public Framework selectOneFramework(int id) throws SQLException{
 		
 		PreparedStatement statement = connection.prepareStatement("SELECT id, frameworkName, license, expert, vendor FROM framework WHERE id = " + id);
@@ -52,4 +71,5 @@ public class JDBCConnector {
 		
 		return newFramework;
 	}
+
 }
