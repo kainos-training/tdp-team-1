@@ -2,14 +2,18 @@ package com.kainos.projectdrill.resource;
 
 import io.dropwizard.views.View;
 
+import java.net.URI;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.codahale.metrics.annotation.Timed;
 import com.kainos.projectdrill.database.JDBCConnector;
@@ -24,16 +28,15 @@ public class ViewsResource {
 	JDBCConnector database;
 	
 	public ViewsResource(JDBCConnector database) throws SQLException, ClassNotFoundException{
-		this.database = new JDBCConnector();
+		this.database = database;
 	}
 	
 	@GET
 	@Timed
-	@Path("/")
+	@Path("/frameworksList")
 	@Produces(MediaType.TEXT_HTML)
-	public View sayHello() throws SQLException{
-		
-		List<Framework> allFrameworks = database.selectAllFrameworks();
+	public View getFrameworkList() throws SQLException{
+		List<Framework> allFrameworks = database.selectAllFrameworks();	
 		return new Index(allFrameworks);
 	}
 
@@ -52,5 +55,17 @@ public class ViewsResource {
 		}
 		
 		
+	}
+	
+	@POST
+	@Path("/insertFramework")
+	public Response insertFramework(@FormParam("nameField") String newName, 
+								@FormParam("licenseField") String newLicense,
+								@FormParam("expertField") String newExpert,
+								@FormParam("vendorField") String newVendor 
+								) throws SQLException {
+		
+		database.addNewFramework(newName, newLicense, newExpert, newVendor);
+		return Response.seeOther(URI.create("/frameworksList")).build();
 	}
 }

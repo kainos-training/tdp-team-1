@@ -1,2 +1,2 @@
-mysql -uroot -p < "dbInit.sql"
+mysql -uroot < "dbInit.sql"
 
