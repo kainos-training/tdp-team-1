@@ -71,6 +71,16 @@ public class ViewsResourceTest {
 	}
 	
 	@Test
+	public void testEditExpert() throws SQLException, ClassNotFoundException {
+		resource = new ViewsResource(mockClient);
+		Response response = resource.updateFrameworkExpert(1, "expert");
+		
+		assertTrue(response.getStatus() == 303);
+		
+		verify(mockClient).updateExpert(1, "expert");
+	}
+	
+	@Test
 	public void testSearchBy() throws ClassNotFoundException, SQLException {
 		resource = new ViewsResource(mockClient);
 		View actualView = resource.searchFrameworks("frameworkName", "rails");

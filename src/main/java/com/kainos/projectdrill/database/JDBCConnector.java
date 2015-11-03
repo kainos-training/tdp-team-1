@@ -18,7 +18,7 @@ public class JDBCConnector {
 																					// port
 																					// number
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "ch@ngeme1";
 
 	private Connection connection;
 
@@ -107,6 +107,16 @@ public class JDBCConnector {
 		statement.execute();
 	}
 	
+	public void updateExpert(int frameworkId, String expert) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("UPDATE framework SET expert = ? WHERE id = ?");
+		
+		ps.setString(1, expert);
+		ps.setInt(2, frameworkId);
+		
+		
+		ps.execute();
+	}
+
 	public List<Framework> searchBy(String searchType, String searchName) throws SQLException {
 		
 		List<Framework> frameworkList = new ArrayList<Framework>();
@@ -201,5 +211,4 @@ public class JDBCConnector {
 		}
 		return frameworkList;
 	}
-
 }

@@ -25,19 +25,20 @@ import com.kainos.projectdrill.views.selectOneFramework;
 
 @Path("/")
 public class ViewsResource {
-	
+
 	JDBCConnector database;
-	
-	public ViewsResource(JDBCConnector database) throws SQLException, ClassNotFoundException{
+
+	public ViewsResource(JDBCConnector database) throws SQLException,
+			ClassNotFoundException {
 		this.database = database;
 	}
-	
+
 	@GET
 	@Timed
 	@Path("/frameworksList")
 	@Produces(MediaType.TEXT_HTML)
-	public View getFrameworkList() throws SQLException{
-		List<Framework> allFrameworks = database.selectAllFrameworks();	
+	public View getFrameworkList() throws SQLException {
+		List<Framework> allFrameworks = database.selectAllFrameworks();
 		return new Index(allFrameworks);
 	}
 
@@ -62,15 +63,14 @@ public class ViewsResource {
 		}
 
 	}
-	
+
 	@POST
 	@Path("/insertFramework")
-	public Response insertFramework(@FormParam("nameField") String newName, 
-								@FormParam("licenseField") String newLicense,
-								@FormParam("expertField") String newExpert,
-								@FormParam("vendorField") String newVendor 
-								) throws SQLException {
-		
+	public Response insertFramework(@FormParam("nameField") String newName,
+			@FormParam("licenseField") String newLicense,
+			@FormParam("expertField") String newExpert,
+			@FormParam("vendorField") String newVendor) throws SQLException {
+
 		database.addNewFramework(newName, newLicense, newExpert, newVendor);
 		return Response.seeOther(URI.create("/frameworksList")).build();
 	}
@@ -86,4 +86,16 @@ public class ViewsResource {
 		
 	}
 
+	@POST
+	@Timed
+	@Path("/updateExpert/{frameworkId}")
+	public Response updateFrameworkExpert(
+			@PathParam("frameworkId") int frameworkId,
+			@FormParam("expertName") String expertName) throws SQLException {
+		
+		
+		database.updateExpert(frameworkId, expertName);
+		
+		return Response.seeOther(URI.create("/frameworksList")).build();
+	}
 }
