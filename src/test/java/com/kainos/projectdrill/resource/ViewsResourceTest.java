@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.core.Response;
+
 public class ViewsResourceTest {
 	
 	JDBCConnector mockClient = mock(JDBCConnector.class);
@@ -37,8 +39,13 @@ public class ViewsResourceTest {
 	}
 	
 	@Test
-	public void testDefault() {
-		assert(true);
+	public void testAddFramework() throws ClassNotFoundException, SQLException {
+		resource = new ViewsResource(mockClient);
+		Response response = resource.insertFramework("Name", "License", "Vendor", "Expert");
+		
+		assertTrue(response.getStatus() == 303);
+		
+		verify(mockClient).addNewFramework("Name", "License", "Vendor", "Expert");
 	}
 }
  

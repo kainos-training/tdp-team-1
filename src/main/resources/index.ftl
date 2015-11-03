@@ -123,11 +123,6 @@
         </div>
            
             <div class="container">
-            
-             <div class="validation-message error">
-              <p>Framework not added correctly!</p>
-              <a class="close-validation">&#10006;</a>
- 				</div>
         
             <#if frameworks??>
             <table class="technology-table">
