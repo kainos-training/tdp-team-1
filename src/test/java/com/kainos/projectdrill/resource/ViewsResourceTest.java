@@ -24,17 +24,16 @@ public class ViewsResourceTest {
 	ViewsResource resource;
 	
 	@Test
-	public void testSayHelloReturnsIndexView() throws SQLException, ClassNotFoundException {
+	public void testIfReturnsFrameworkList() throws SQLException, ClassNotFoundException {
 		
 		when(mockClient.selectAllFrameworks()).thenReturn(frameworks);
 		
 		resource = new ViewsResource(mockClient);
-		View actualView = resource.sayHello();
+		View actualView = resource.getFrameworkList();
 		
 		assertTrue(actualView instanceof Index);
 		
 		verify(mockClient).selectAllFrameworks();
-		
 	}
 }
  
