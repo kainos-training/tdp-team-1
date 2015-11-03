@@ -21,7 +21,7 @@ public class ViewsResource {
 	JDBCConnector database;
 	
 	public ViewsResource(JDBCConnector database) throws SQLException, ClassNotFoundException{
-		this.database = new JDBCConnector();
+		this.database = database;
 	}
 	
 	@GET
@@ -29,8 +29,7 @@ public class ViewsResource {
 	@Path("/")
 	@Produces(MediaType.TEXT_HTML)
 	public View sayHello() throws SQLException{
-		
-		List<Framework> allFrameworks = database.selectAllFrameworks();
+		List<Framework> allFrameworks = database.selectAllFrameworks();	
 		return new Index(allFrameworks);
 	}
 	
