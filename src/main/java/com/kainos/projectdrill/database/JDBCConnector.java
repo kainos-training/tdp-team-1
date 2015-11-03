@@ -15,7 +15,7 @@ public class JDBCConnector {
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String DB_ADDRESS = "jdbc:mysql://localhost:3306/ktechDB"; //TODO: Fix port number
 	private static final String USERNAME = "root";
-	private static final String PASSWORD = "";
+	private static final String PASSWORD = "ch@ngeme1";
 	private Connection connection;
 	
 	
