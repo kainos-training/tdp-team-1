@@ -76,5 +76,14 @@ public class ViewsResource {
 		database.addNewFramework(newName, newLicense, newExpert, newVendor);
 		return Response.seeOther(URI.create("/frameworksList")).build();
 	}
+	
+	@POST
+	@Path("/{frameworkId}/addReview")
+	public Response addReview(@FormParam("name") String name, @FormParam("review") String review, @PathParam("frameworkId") int frameworkId) throws SQLException {
+		
+		database.addReviewForFramework(name, review, frameworkId);
+		
+		return Response.seeOther(URI.create("/selectOneFramework/" + frameworkId)).build();
+	}
 
 }
